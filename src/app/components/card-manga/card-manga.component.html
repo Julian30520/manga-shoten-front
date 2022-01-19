@@ -8,7 +8,7 @@
     src="{{ data.url }}"
     alt=""
   />
-  <div class="row">
+  <div *ngIf="data.name" class="row">
     <h6 [ngStyle]="{ color: getRandomColor() }" style="margin: 0">
       {{ data.name }}
     </h6>
