@@ -102,21 +102,20 @@ export class PagesDetailsComponent implements OnInit {
   //   ],
   // };
 
-
   //cover : string;
 
   detailManga: any;
   cover;
   constructor() {
-    this.detailManga 
-    this.cover = ``
+    this.detailManga;
+    this.cover = ``;
   }
 
   ngOnInit(): void {
-    console.log(history)
+    console.log(history);
     this.detailManga = history.state[0];
-    console.log(this.detailManga)
-    console.log(this.detailManga.mangadexId)
-    this.cover = `https://uploads.mangadex.org/covers/${this.detailManga.mangadexId}/${this.detailManga.cover}`
+    //onsole.log(history);
+    //console.log(this.detailManga.mangadexId);
+    this.cover = `https://uploads.mangadex.org/covers/${this.detailManga.mangadexId}/${this.detailManga.cover}`;
   }
 }

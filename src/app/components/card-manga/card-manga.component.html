@@ -2,18 +2,33 @@
   class="card text-black mb-2"
   style="border: none; cursor: pointer; margin: 0"
 >
-  <app-icon class="bookmark" [iconName]="'bookmark-fill'" [iconSize]="'2'" [iconColor]="'gold'"></app-icon>
+  <app-icon
+    class="bookmark"
+    [iconName]="'bookmark-fill'"
+    [iconSize]="'2'"
+    [iconColor]="'gold'"
+  ></app-icon>
   <img
-    class="rounded img-fluid card-img-top"
+    class="rounded border img-fluid card-img-top shadow my-1 figure-img"
     style="height: 250px; margin: 0; width: 175px"
-    src="{{ cover }}"
+    src="{{
+      !cover.includes('null')
+        ? cover
+        : 'https://via.placeholder.com/200x300.png?text=no+cover'
+    }}"
     alt=""
   />
   <div class="row">
-    <h6 *ngIf="data.titleEn" [ngStyle]="{ color: getRandomColor() }" style="margin: 0">
+    <h6
+      *ngIf="data.titleEn"
+      [ngStyle]="{ color: getRandomColor() }"
+      style="margin: 0"
+    >
       {{ data.titleEn }}
     </h6>
-    <small class="fw-light">Tome: {{ data.lastVolume }}</small>
-    <small class="fw-light">Chapitre: {{data.lastChapter}}</small>
+    <div class="row" *ngIf="data.titleEn">
+      <small class="fw-light">Tome: {{ data.lastVolume }}</small>
+      <small class="fw-light">Chapitre: {{ data.lastChapter }}</small>
+    </div>
   </div>
 </div>
