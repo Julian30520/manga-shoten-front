@@ -20,83 +20,83 @@ export class PagesDetailsComponent implements OnInit {
     complete: true,
     tomes: [
       {
-        numero: 1,
+        tome: 1,
         url: 'https://picsum.photos/200/300?random=1',
       },
       {
-        numero: 2,
+        tome: 2,
         url: 'https://picsum.photos/200/300?random=2',
       },
       {
-        numero: 3,
+        tome: 3,
         url: 'https://picsum.photos/200/300?random=3',
       },
       {
-        numero: 4,
+        tome: 4,
         url: 'https://picsum.photos/200/300?random=4',
       },
       {
-        numero: 5,
+        tome: 5,
         url: 'https://picsum.photos/200/300?random=5',
       },
       {
-        numero: 6,
+        tome: 6,
         url: 'https://picsum.photos/200/300?random=6',
       },
       {
-        numero: 7,
+        tome: 7,
         url: 'https://picsum.photos/200/300?random=7',
       },
       {
-        numero: 8,
+        tome: 8,
         url: 'https://picsum.photos/200/300?random=8',
       },
       {
-        numero: 9,
+        tome: 9,
         url: 'https://picsum.photos/200/300?random=9',
       },
       {
-        numero: 10,
+        tome: 10,
         url: 'https://picsum.photos/200/300?random=10',
       },
       {
-        numero: 11,
+        tome: 11,
         url: 'https://picsum.photos/200/300?random=11',
       },
       {
-        numero: 12,
+        tome: 12,
         url: 'https://picsum.photos/200/300?random=12',
       },
       {
-        numero: 13,
+        tome: 13,
         url: 'https://picsum.photos/200/300?random=13',
       },
       {
-        numero: 14,
+        tome: 14,
         url: 'https://picsum.photos/200/300?random=14',
       },
       {
-        numero: 15,
+        tome: 15,
         url: 'https://picsum.photos/200/300?random=15',
       },
       {
-        numero: 16,
+        tome: 16,
         url: 'https://picsum.photos/200/300?random=16',
       },
       {
-        numero: 17,
+        tome: 17,
         url: 'https://picsum.photos/200/300?random=17',
       },
       {
-        numero: 18,
+        tome: 18,
         url: 'https://picsum.photos/200/300?random=18',
       },
       {
-        numero: 19,
+        tome: 19,
         url: 'https://picsum.photos/200/300?random=19',
       },
       {
-        numero: 20,
+        tome: 20,
         url: 'https://picsum.photos/200/300?random=20',
       },
     ],

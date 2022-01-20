@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
   selector: 'app-pages-accueil',
@@ -89,7 +90,11 @@ export class PagesAccueilComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private cover: MangaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cover.getAllManga().subscribe((data: any) => {
+      console.log(data)
+    })
+  }
 }

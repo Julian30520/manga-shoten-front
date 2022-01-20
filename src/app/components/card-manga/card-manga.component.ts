@@ -26,13 +26,13 @@ export class CardMangaComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.color);
+    // console.log(this.color);
     // this.getRandomColor();
   }
 
   getRandomColor() {
     const c = Math.floor(Math.random() * this.color.length);
-    console.log(c);
+    // console.log(c);
     return this.color[c];
   }
 }
