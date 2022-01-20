@@ -6,13 +6,14 @@
   <img
     class="rounded img-fluid card-img-top"
     style="height: 250px; margin: 0; width: 175px"
-    src="{{ data.url }}"
+    src="{{ cover }}"
     alt=""
   />
   <div class="row">
-    <h6 *ngIf="data.name" [ngStyle]="{ color: getRandomColor() }" style="margin: 0">
-      {{ data.name }}
+    <h6 *ngIf="data.titleEn" [ngStyle]="{ color: getRandomColor() }" style="margin: 0">
+      {{ data.titleEn }}
     </h6>
-    <small class="fw-light">Tome: {{ data.tome }}</small>
+    <small class="fw-light">Tome: {{ data.lastVolume }}</small>
+    <small class="fw-light">Chapitre: {{data.lastChapter}}</small>
   </div>
 </div>

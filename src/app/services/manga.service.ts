@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class MangaService {
 
-   headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','content-type': 'application/json'} )
+   // headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','content-type': 'application/json'} )
   // .set('content-type', 'application/json')
   // .set('Access-Control-Allow-Origin', '*');
 
   constructor(private http: HttpClient) { }
 
-  getAllManga(): Observable<any> {
-    return this.http.get<any>('http://localhost/8080/manga/all', {'headers': this.headers} )
+  getAllManga(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/manga/all' )
   }
+
 }
-// https://uploads.mangadex.org/covers/8f3e1818-a015-491d-bd81-3addc4d7d56a/4113e972-d228-4172-a885-cb30baffff97.jpg
