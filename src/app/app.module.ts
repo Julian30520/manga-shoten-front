@@ -10,7 +10,7 @@ import { CardMangaComponent } from './components/card-manga/card-manga.component
 import { PagesDetailsComponent } from './pages/pages-details/pages-details.component';
 import { PagesBibliComponent } from './pages/pages-bibli/pages-bibli.component';
 import { IconComponent } from './components/icon/icon.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

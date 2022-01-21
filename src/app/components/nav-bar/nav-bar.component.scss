@@ -1,15 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 a {
-  font-family: Abril Fatface;
-  font-weight: bold;
+  font-family: var(--font-family);
+  font-weight: 500;
   font-size: 20px;
-  color: black !important;
 }
-.btn-green {
-  background-color: #6fb290;
-  color: white;
-}
+
 .logo {
-  font-family: Abril Fatface;
+  font-family: var(--logoMangaShoten);
   font-weight: bold;
   font-size: 30px;
 }

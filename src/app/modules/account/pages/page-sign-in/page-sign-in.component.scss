@@ -1,0 +1,28 @@
+.signin-page h3 {
+  margin: 20px 0px 30px;
+  padding: 0px 0px 25px;
+  text-align: center;
+}
+
+.signin-page form {
+  margin: 30px auto;
+  width: 500px;
+  padding: 10px 25px;
+}
+.signin-page .btn {
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 18px;
+  border: none;
+}
+
+.signin-page label {
+  margin-bottom: 3px;
+}
+
+/*Responsive*/
+@media (max-width: 767px) {
+  .signin-page form {
+    width: 90%;
+  }
+}
