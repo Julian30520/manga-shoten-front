@@ -10,11 +10,15 @@
   <div class="container">
     <div class="row py-3 haut-row">
       <div class="col-sm-12 col-md-12 col-lg-8">
-        <h1
-          class="display-3 bg-light p-2 text-dark fw-bold bg-opacity-20 col-12"
+        <div class="bg-light p-2 text-dark fw-bold bg-opacity-20 col-12">
+          <h1
+          class="display-4 "
         >
           {{ detailManga.titleEn }}
         </h1>
+        <h5 class="text-end">{{detailManga.titleJp}}</h5>
+        </div>
+        
         <div class="mt-5 p-2">
           <h3>Synopsis</h3>
           <p class="fs-6">{{ detailManga.synopsis }}</p>
@@ -24,15 +28,16 @@
         <img class="w-75 h-100 rounded shadow" src="{{ cover }}" alt="" />
       </div>
     </div>
-    <div class="col-12 text-center d-lg-none d-xl-none my-2 border">
+    <div class="col-12 text-center d-lg-none d-xl-none my-2">
       <a
         href="#collapseMe"
         role="button"
-        class="btnCollapse text-decoration-none"
+        class="btnCollapse text-decoration-none btn btn-outline-info btn-sm my-1 text-dark"
         data-bs-toggle="collapse"
         aria-expanded="true"
         aria-controls="collapseMe"
-        >collapse</a
+        (click)="letShowMore()"
+        ><app-icon [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"></app-icon> Show more <app-icon [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"></app-icon></a
       >
     </div>
   </div>
@@ -48,7 +53,7 @@
           >
             <app-card-manga
               [data]="tome"
-              [idMangadex]="detailManga.mangadexId"
+              [idManga]="detailManga.mangaId"
             ></app-card-manga>
           </div>
         </div>
@@ -78,7 +83,7 @@
           <div class="col-lg-12 col-sm-6">
             <h4>Type:</h4>
             <a href="" class="btn btn-outline-info btn-sm my-1 text-dark">{{
-              detailManga.type
+              detailManga.pubDemographic
             }}</a>
           </div>
           <div class="col-12">
@@ -100,7 +105,11 @@
           </div>
           <div class="col-12">
             <h4>Nombres de Chapitres:</h4>
-            {{ detailManga.lastChapter }}
+            {{ detailManga.lastChapter == '' || detailManga.lastChapter == null ? detailManga.lastVolume * 10 : detailManga.lastChapter }}
+          </div>
+          <div class="col-12">
+            <h4>Release Year</h4>
+            {{detailManga.releaseDate == 'null' ? '' : detailManga.releaseDate }}
           </div>
         </div>
       </div>
