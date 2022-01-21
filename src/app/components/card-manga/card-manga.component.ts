@@ -7,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardMangaComponent implements OnInit {
   @Input() data: any;
-
+  cover: string;
+  @Input() idMangadex: any;
   color = [
     '#0dcaf0',
     '#adb5bd',
@@ -23,16 +24,22 @@ export class CardMangaComponent implements OnInit {
     '#0d6efd',
   ];
 
-  constructor() {}
+  constructor() {
+    this.cover = '';
+  }
 
   ngOnInit(): void {
-    console.log(this.color);
+    // console.log(this.color);
     // this.getRandomColor();
+    this.cover = `https://uploads.mangadex.org/covers/${
+      this.data.mangadexId ? this.data.mangadexId : this.idMangadex
+    }/${this.data.cover}.256.jpg`;
+    //console.log(this.cover);
   }
 
   getRandomColor() {
     const c = Math.floor(Math.random() * this.color.length);
-    console.log(c);
+    // console.log(c);
     return this.color[c];
   }
 }

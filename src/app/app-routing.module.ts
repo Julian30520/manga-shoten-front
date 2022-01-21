@@ -6,7 +6,7 @@ import { PagesDetailsComponent } from './pages/pages-details/pages-details.compo
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: PagesAccueilComponent },
-  { path: 'detail', component: PagesDetailsComponent },
+  { path: 'manga/:id', component: PagesDetailsComponent },
 ];
 
 @NgModule({
