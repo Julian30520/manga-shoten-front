@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
   selector: 'app-pages-details',
@@ -106,7 +108,7 @@ export class PagesDetailsComponent implements OnInit {
 
   detailManga: any;
   cover;
-  constructor() {
+  constructor(private mangaService: MangaService, private route: ActivatedRoute) {
     this.detailManga;
     this.cover = ``;
   }
@@ -114,8 +116,18 @@ export class PagesDetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log(history);
     this.detailManga = history.state[0];
+
+    const routeParams = this.route.snapshot.paramMap
+    const mangaIdFromRoute= routeParams.get('id');
+    console.log(mangaIdFromRoute)
+
+    this.mangaService.getOneManga(mangaIdFromRoute).subscribe((response) => {
+      console.log(response)
+      this.detailManga = response
+      this.cover = `https://uploads.mangadex.org/covers/${this.detailManga.mangadexId}/${this.detailManga.cover}`;
+    })
     //onsole.log(history);
     //console.log(this.detailManga.mangadexId);
-    this.cover = `https://uploads.mangadex.org/covers/${this.detailManga.mangadexId}/${this.detailManga.cover}`;
+   
   }
 }

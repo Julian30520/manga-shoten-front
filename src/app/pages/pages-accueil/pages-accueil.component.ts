@@ -90,15 +90,16 @@ export class PagesAccueilComponent implements OnInit {
   //   },
   // ];
 
-  dataManga: string[];
-  constructor(private manga: MangaService) {
+  dataManga: any[];
+  constructor(private mangaService: MangaService) {
     this.dataManga = [];
   }
 
   ngOnInit(): void {
-    this.manga.getAllManga().subscribe((data: any[]) => {
-      console.log(data)
+    this.mangaService.getAllManga().subscribe((data: any[]) => {
+      ///console.log(data)
       this.dataManga = data
+      console.log(this.dataManga)
     })
   }
 }

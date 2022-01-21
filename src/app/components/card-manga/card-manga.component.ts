@@ -34,7 +34,7 @@ export class CardMangaComponent implements OnInit {
     this.cover = `https://uploads.mangadex.org/covers/${
       this.data.mangadexId ? this.data.mangadexId : this.idMangadex
     }/${this.data.cover}.256.jpg`;
-    console.log(this.cover);
+    //console.log(this.cover);
   }
 
   getRandomColor() {

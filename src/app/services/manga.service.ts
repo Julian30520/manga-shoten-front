@@ -1,20 +1,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MangaService {
 
-   // headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','content-type': 'application/json'} )
-  // .set('content-type', 'application/json')
-  // .set('Access-Control-Allow-Origin', '*');
+  public apiUrl = environment.apiUrl
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getAllManga(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/manga/all' )
+    return this.httpClient.get<any[]>(`${this.apiUrl}/manga/all/30`)
+  }
+
+  getOneManga(id: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}/manga/${id}`)
   }
 
 }

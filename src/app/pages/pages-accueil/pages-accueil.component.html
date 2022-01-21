@@ -1,15 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <app-search-bar></app-search-bar>
+<section class="searchSection">
+  <div class="container">
+    <div class="row h-100">
+      <div class="col-12 d-flex flex-column justify-content-center searchWrapper align-item-center bg-light p-2 bg-opacity-75 rounded h-75">
+        <h3 class="text-dark text-center fw-bold ">Search your favorite Manga</h3>
+        <app-search-bar class="col-12"></app-search-bar>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-center align-items-start">
-    <div
-      class="col-5 col-sm-4 col-md-3 col-lg-2"
-      *ngFor="let data of dataManga"
-    >
-      <app-card-manga [data]="data" routerLink="../detail" [state]=[data]></app-card-manga>
+</section>
+<section class="home py-3">
+  <div class="container">
+    <div class="row justify-content-center align-items-start">
+      <div
+        class="col-5 col-sm-4 col-md-3 col-lg-2"
+        *ngFor="let data of dataManga"
+      >
+        <app-card-manga [data]="data" [routerLink]="['../manga', data.mangadexId]"></app-card-manga>
+      </div>
     </div>
   </div>
-</div>
+</section>
