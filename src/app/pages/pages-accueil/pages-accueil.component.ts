@@ -8,7 +8,6 @@ import { MangaService } from 'src/app/services/manga.service';
   styleUrls: ['./pages-accueil.component.scss'],
 })
 export class PagesAccueilComponent implements OnInit {
-  
   public dataManga: string[];
   constructor(private mangaService: MangaService, private http: HttpClient) {
     this.dataManga = [];

@@ -4,15 +4,14 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MangaService {
-
   public apiUrl = environment.apiUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getAllManga(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all`);
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/10`);
   }
 }

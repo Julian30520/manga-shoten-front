@@ -6,9 +6,10 @@ import { PageResetPasswordComponent } from './pages/page-reset-password/page-res
 import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
 import { PageSignInComponent } from './pages/page-sign-in/page-sign-in.component';
 import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component';
+import { PageAccountComponent } from './pages/page-account/page-account.component';
 
 @NgModule({
-  declarations: [PageResetPasswordComponent, PageForgotPasswordComponent, PageSignInComponent, PageSignUpComponent],
+  declarations: [PageResetPasswordComponent, PageForgotPasswordComponent, PageSignInComponent, PageSignUpComponent, PageAccountComponent],
   imports: [CommonModule, AccountRoutingModule],
 })
 export class AccountModule {}

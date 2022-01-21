@@ -1,2 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+:root {
+  --logoMangaShoten: "Abril Fatface", cursive;
+  --font-family: "Roboto", sans-serif;
+  --primary: #6fb290;
+  --secondary: #9fccb5;
+  --accent: #079eec;
+  --lightGrey: #dfe6e9;
+  --text-regular: #2d3436;
+}
+
+.btn-m {
+  padding: 5px 20px;
+  background-color: var(--primary);
+  border: 0;
+  border-radius: 5px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  color: white;
+  &-p {
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: var(--secondary);
+    color: white;
+  }
+  transition: background-color 0.4s;
+}
