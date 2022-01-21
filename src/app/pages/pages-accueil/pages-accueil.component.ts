@@ -8,14 +8,16 @@ import { MangaService } from 'src/app/services/manga.service';
   styleUrls: ['./pages-accueil.component.scss'],
 })
 export class PagesAccueilComponent implements OnInit {
-  public dataManga: string[];
+  public dataManga: any[];
   constructor(private mangaService: MangaService, private http: HttpClient) {
     this.dataManga = [];
   }
 
   ngOnInit(): void {
     this.mangaService.getAllManga().subscribe((data: any[]) => {
+      ///console.log(data)
       this.dataManga = data;
+      console.log(this.dataManga);
     });
   }
 }

@@ -12,3 +12,16 @@
   position: relative;
   top: -150px;
 }
+
+.btnCollapse {
+  color: red;
+}
+
+@media screen and(max-width: 810px) {
+  .haut {
+    top: -120px;
+  }
+  .contenue{
+    top: -120px;
+  }
+}

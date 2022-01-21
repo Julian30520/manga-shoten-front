@@ -12,6 +12,10 @@ export class MangaService {
   constructor(private httpClient: HttpClient) {}
 
   getAllManga(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/10`);
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/30`);
+  }
+
+  getOneManga(id: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/${id}`);
   }
 }
