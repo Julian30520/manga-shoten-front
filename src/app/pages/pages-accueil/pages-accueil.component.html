@@ -3,7 +3,7 @@
     <div class="row h-100">
       <div class="col-12 d-flex flex-column justify-content-center searchWrapper align-item-center bg-light p-2 bg-opacity-75 rounded h-75">
         <h3 class="text-dark text-center fw-bold ">Search your favorite Manga</h3>
-        <app-search-bar class="col-12"></app-search-bar>
+        <app-search-bar (searchManga)="onSearch($event)" class="col-12"></app-search-bar>
       </div>
     </div>
   </div>
