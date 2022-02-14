@@ -11,8 +11,8 @@ export class MangaService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAllManga(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/30`)
+  getAllManga(params: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/`, {params})
   }
 
   getOneManga(id: any): Observable<any[]> {

@@ -1,3 +1,22 @@
-<div class="m-3">
-    <input type="search" name="" id="" placeholder="Search" class="form-control" (input)="searchBar($event)">
-</div>
+<section class="searchSection">
+    <div class="container">
+        <div class="row h-100">
+            <div class="col-12 d-flex flex-column justify-content-center searchWrapper align-item-center bg-light p-2 bg-opacity-75 rounded">
+                <h3 class="text-dark text-center fw-bold ">Search your favorite Manga</h3>
+                <div class="m-3 row">
+                    <div class="col-10">
+                        <input type="search" name="" id="" placeholder="Search" class="form-control" (input)="searchBar($event)">
+                    </div>
+                    <div class="col-2">
+                        <button class="col-12 btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">Filter</button>
+                    </div>
+                </div>
+                <div class="collapse" id="filterCollapse">
+                    <div class="card card-body">
+                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
