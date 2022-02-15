@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,9 +9,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   @Output() searchManga= new EventEmitter();
 
-  constructor() {}
+  constructor(private mangaService: MangaService) {}
 
   ngOnInit(): void {
+    this.mangaService.filterSearch().subscribe((data: any[]) =>{
+      console.log(data)
+    })
   }
 
   searchBar(evt: any) {
@@ -20,3 +24,10 @@ export class SearchBarComponent implements OnInit {
   }
 
 }
+
+// Demographic _ publicationDemographic[]
+// "shounen" "shoujo" "josei" "seinen" "none"
+//Content Rating _ contentRating[]
+//"safe" "suggestive" "erotica" "pornographic"
+//Publication Status _ status[]
+//"ongoing" "completed" "hiatus" "cancelled"
