@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: PagesAccueilComponent },
   { path: 'manga/:id', component: PagesDetailsComponent },
   { path: 'login', component: PageSignInComponent },
-  { path: 'signin', component: PageSignUpComponent },
+  { path: 'signup', component: PageSignUpComponent },
   {
     path: 'account',
     loadChildren: () =>
