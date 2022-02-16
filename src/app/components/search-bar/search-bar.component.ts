@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Params } from 'src/app/models/params';
 import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
@@ -9,12 +10,24 @@ import { MangaService } from 'src/app/services/manga.service';
 export class SearchBarComponent implements OnInit {
   @Output() searchManga= new EventEmitter();
 
-  constructor(private mangaService: MangaService) {}
+  paramsSearch: Params = {
+    limit: 0,
+    offset: 0,
+    title:'',
+    includedTags: [],
+    contentRating: [],
+    publicationDemographic: [],
+    status: []
+  };
+
+  constructor(private mangaService: MangaService) {
+  }
 
   ngOnInit(): void {
-    this.mangaService.filterSearch().subscribe((data: any[]) =>{
-      console.log(data)
-    })
+    
+    //this.pushParams()
+   // console.log('param', this.paramsSearch)
+    this.modifierParams()
   }
 
   searchBar(evt: any) {
@@ -22,6 +35,37 @@ export class SearchBarComponent implements OnInit {
     this.searchManga.emit(evt.target.value);
     // console.log(this.searchManga);
   }
+
+  pushParams() {
+    this.paramsSearch.limit = 32;
+    this.paramsSearch.includedTags.push('gore')
+    this.paramsSearch.includedTags.push('action')
+    // console.log(this.paramsSearch)
+    return this.paramsSearch
+  }
+
+  modifierParams() {
+    const params = this.pushParams()
+    if(params.includedTags.length > 0) {
+       params.includedTags.map((x:string) => {
+          console.log(x = `&includedTags=${x}`)
+          x = `&includedTags=${x}`
+        })
+      }
+    console.log('modifier', params)
+    this.searchFilter(params)
+    return params
+  }
+
+  searchFilter(params: any) {
+    
+    console.log(params)
+    this.mangaService.filterSearch(params).subscribe((data: any[]) =>{
+      console.log(data)
+    })
+  }
+
+  
 
 }
 
