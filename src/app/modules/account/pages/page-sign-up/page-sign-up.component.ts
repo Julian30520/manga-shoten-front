@@ -45,7 +45,7 @@ export class PageSignUpComponent implements OnInit {
 
     const user: User = {
       username: UserNameValue,
-      email: emailValue,
+      mail: emailValue,
       password: passwordValue,
       firstname: '',
       lastname: '',
@@ -56,7 +56,7 @@ export class PageSignUpComponent implements OnInit {
       },
     };
 
-    if (user.email !== '' && user.password !== '') {
+    if (user.mail !== '' && user.password !== '') {
       this.authService.signup(user).subscribe((resp) => {
         this.router.navigate(['account/signin']);
       });
