@@ -13,34 +13,110 @@
                 </div>
                 <div class="collapse" id="filterCollapse">
                     <div class="card card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quam ab, magni expedita asperiores officia dignissimos eligendi laboriosam. 
-                        Hic facilis cupiditate dolorum dolorem nihil earum. Quisquam, nam esse harum totam odio reprehenderit! Saepe recusandae iste repellat?
-                        Eveniet expedita accusamus a, error recusandae blanditiis animi quis magni sapiente! Magnam ab veniam reiciendis optio illo sequi delectus quae id distinctio, 
-                        suscipit, aperiam atque fugiat accusantium porro quas beatae dolorum? Officia voluptatibus eos alias delectus corrupti aperiam error 
-                        laboriosam provident cupiditate quos aliquid est a omnis inventore, ullam, id aut adipisci earum necessitatibus impedit? Cumque, minus asperiores! 
-                        Veritatis accusamus cum voluptas eligendi saepe repudiandae ullam officiis in nemo iste quae libero, numquam odit harum ratione cumque. Suscipit, 
-                        sint voluptas dolore eveniet unde maiores excepturi eum optio iure expedita. Harum minima sequi, consectetur beatae unde corporis, doloribus neque 
-                        est possimus eaque laborum expedita fuga eius nisi? Maxime excepturi optio officiis quidem illo perspiciatis tempora molestiae consectetur magni 
-                        esse neque cupiditate perferendis quo voluptas rerum harum cum, vel adipisci veniam. Neque molestias voluptas libero similique praesentium officia 
-                        rem vitae error odio et veritatis, unde perspiciatis! Perspiciatis sapiente recusandae nobis inventore possimus iste voluptas natus iure ab debitis a 
-                        totam ipsum necessitatibus accusantium suscipit laboriosam dignissimos, unde placeat sequi. Repellat, placeat omnis non distinctio perspiciatis voluptates 
-                        eligendi ipsa facilis quibusdam voluptatum et molestias reiciendis nisi incidunt rem voluptas, dicta corrupti sunt veniam suscipit amet exercitationem dolorem 
-                        hic doloribus! Molestias magnam nam tempora, adipisci eum placeat quidem accusantium harum ad natus qui voluptatibus consequatur, cum odio perferendis doloribus amet neque. 
-                        Consequuntur soluta, laudantium quas exercitationem temporibus, rerum debitis nobis aperiam ex quaerat necessitatibus laborum praesentium beatae fuga quisquam consectetur 
-                        dolores quibusdam facilis in iure at. Culpa iusto, iure magnam cupiditate quasi laboriosam pariatur praesentium incidunt. Consequuntur laudantium earum numquam asperiores, 
-                        error, harum debitis commodi quod aperiam cum obcaecati? Odit a provident cumque vitae perspiciatis neque ipsa? Itaque quaerat optio architecto error exercitationem? 
-                        Dolorem cupiditate eius dignissimos corporis sunt perspiciatis expedita alias repellat officiis enim facilis, fugiat totam consequatur repellendus. Ea, beatae? Non aut tempora, 
-                        ipsam eveniet voluptatibus deserunt sapiente, sed commodi magni repellendus voluptates doloribus nulla. Nulla totam iste vero, provident accusantium modi unde. Tempore, ipsam. 
-                        Fuga, quis necessitatibus id veniam hic et maiores ipsam veritatis ab nemo, ipsa nostrum maxime! Recusandae, libero impedit ullam unde reiciendis 
-                        velit enim ea sit voluptates aliquam quisquam nisi, ipsam sint fugiat obcaecati sunt similique cum praesentium ipsum beatae quaerat minus reprehenderit. 
-                        Eaque illum iure, magni corporis quaerat dicta debitis nobis fuga cupiditate tempore voluptates voluptas sapiente, maiores aliquam, veritatis odio numquam 
-                        in perferendis reprehenderit totam aut beatae! Saepe maxime quidem aspernatur accusantium cupiditate necessitatibus, fuga et quo ex ut explicabo repudiandae 
-                        unde asperiores soluta dolores, earum dolorem culpa! Ea sint minus iure voluptatum rem veritatis corporis nihil iste sit. Fuga nisi cupiditate, 
-                        officiis nulla praesentium harum eius corrupti qui quae expedita corporis sunt facere explicabo, nemo vero, quia fugit dicta? Necessitatibus, architecto obcaecati. 
-                        Reiciendis reprehenderit et magnam, accusamus fugiat doloribus nostrum nihil. Nemo atque accusantium alias ab tempora porro illum!
+                        <div class="row">
+                            <div class="demographic col-lg-4">
+                                <span class="mb-1 fw-bold">Demographic: </span>
+                                    <br>
+                                    <ul class="list-inline">
+                                        <li *ngFor="let d of demographic" class="list-inline-item my-1">
+                                            <input type="checkbox" class="btn-check " id="{{d}}" autocomplete="off">
+                                            <label class="btn btn-outline-primary btn-sm " for="{{d}}">{{d}}</label>
+                                        </li>
+                                    </ul>
+                                    
+                            </div>
+                            <div class="contentRating col-lg-4">
+                                <span class="mb-1 fw-bold">Content Rating : </span>
+                                <br>
+                                <ul class="list-inline">
+                                    <li *ngFor="let cr of contentRating" class="list-inline-item my-1">
+                                        <input type="checkbox" class="btn-check " id="{{cr}}" autocomplete="off">
+                                        <label class="btn btn-outline-primary btn-sm " for="{{cr}}">{{cr}}</label>
+                                    </li>
+                                </ul>
+                                   
+                            </div>
+                            <div class="publicationStatus col-lg-4">
+                                <span class="mb-1 fw-bold">Publication Status: </span>
+                                    <br>
+                                    <ul class="list-inline">
+                                        <li *ngFor="let ps of publicationStatus" class="list-inline-item my-1">
+                                            <input type="checkbox" class="btn-check " id="{{ps}}" autocomplete="off">
+                                            <label class="btn btn-outline-primary btn-sm " for="{{ps}}">{{ps}}</label>
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span class="mb-1 fw-bold">Format: </span>
+                            <ul class="list-inline">
+                                <li *ngFor="let f of format" class="list-inline-item my-1">
+                                    <input type="checkbox" class="btn-check " id="{{f}}" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm " for="{{f}}">{{f}}</label>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <div class="row">
+                            <span class="mb-1 fw-bold">Genre: </span>
+                            <ul class="list-inline">
+                                <li *ngFor="let g of genre" class="list-inline-item my-1">
+                                    <input type="checkbox" class="btn-check " id="{{g}}" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm " for="{{g}}">{{g}}</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <span class="mb-1 fw-bold">Theme: </span>
+                            <ul class="list-inline">
+                                <li *ngFor="let t of theme" class="list-inline-item my-1">
+                                    <input type="checkbox" class="btn-check " id="{{t}}" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm" for="{{t}}">{{t}}</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<!-- <input type="checkbox" class="btn-check " id="Shounen" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Shounen">Shounen</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Shoujo" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Shoujo">Shoujo</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Seinen" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Seinen">Seinen</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Josei" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Josei">Josei</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="none" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="none">none</label>
+                                
+                                     <input type="checkbox" class="btn-check" id="Safe" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Safe">Safe</label>
+
+                                    <input type="checkbox" class="btn-check" id="Suggestive" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Suggestive">Suggestive</label>
+
+                                    <input type="checkbox" class="btn-check" id="Erotica" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Erotica">Erotica</label>
+
+                                    <input type="checkbox" class="btn-check " id="Ongoing" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Ongoing">Ongoing</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Completed" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Completed">Completed</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Hiatus" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Hiatus">Hiatus</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Cancelled" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Cancelled">Cancelled</label>
+                                
+                                -->

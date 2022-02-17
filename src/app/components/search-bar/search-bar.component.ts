@@ -20,6 +20,16 @@ export class SearchBarComponent implements OnInit {
     status: []
   };
 
+  demographic = ['Shounen', 'Shoujo', 'Seinen', 'Josei', 'None'];
+  contentRating = ['Safe', 'Suggestive', 'Erotica', 'Gore', 'Sexual Violence'];
+  publicationStatus = ['Ongoing', 'Completed', 'Hiatus', 'Cancelled']
+  content = ['Gore', 'Sexual Violence'];
+  format = ['4-koma', 'Adaptation','Anthology', 'Award Winning', 'Doujinshi', 'Fan Colored', 'Full Color', 'Long Strip', 'Official Colored', 'Oneshot', 'User Created', 'Web Comic'];
+  genre = ['Action', 'Adventure', 'Boys Love', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Girls love', 'Historical', 'Horror', 'Isekai', 'Magical Girls', 'Mecha', 'Medical', 'Mystery', 'Philosophical', 'Psychological', 'Romance', 'Sci-Fi', 'Slice of Life', 'Sports', 'SuperHero', 'Thriller', 'Tragedy', 'Wuxia'];
+  theme = ['Aliens', 'Action', 'Cooking', 'Crossdressing', 'Delinquents', 'Demons', 'Genderswap','Ghosts','Gyaru', 'Harem', 'Incest', 'Loli', 'Mafia', 'Magic', 'Martial Arts', 'Military', 'Monster Girls', 'Monsters', 'Music', 'Ninja', 'Office Workers', 'Police', 'Post-Apocalyptic', 'Reincarnation', 'Reverse Harem', 'Samurai', 'School Life', 'Shota', 'Supernatural', 'Survival', 'Time Travel', 'Traditional Games', 'Vampires', 'Video Games', 'Vilainess', 'Virtual Reality', 'Zombies'];
+
+
+
   constructor(private mangaService: MangaService) {
   }
 
