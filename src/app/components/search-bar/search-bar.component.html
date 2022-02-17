@@ -8,7 +8,14 @@
                         <input type="search" name="" id="" placeholder="Search" class="form-control" (input)="searchBar($event)">
                     </div>
                     <div class="col-2">
-                        <button class="col-12 btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#filterCollapse" >Filter</button>
+                        <button class="col-12 btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#filterCollapse" >
+                            <app-icon
+                            [iconName]="'filter'"
+                            [iconSize]="'1'"
+                            [iconColor]="'white'"
+                            ></app-icon>
+                            Filter
+                        </button>
                     </div>
                 </div>
                 <div class="modal fade" id="filterCollapse" tabindex="-1" aria-labelledby="FilterLabel" aria-hidden="true">
@@ -20,7 +27,7 @@
                                         <br>
                                         <ul class="list-inline">
                                             <li *ngFor="let d of demographic" class="list-inline-item my-1">
-                                                <input type="checkbox" class="btn-check " id="{{d}}" autocomplete="off">
+                                                <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{d}}" autocomplete="off">
                                                 <label class="btn btn-outline-primary btn-sm " for="{{d}}">{{d}}</label>
                                             </li>
                                         </ul>
@@ -31,7 +38,7 @@
                                     <br>
                                     <ul class="list-inline">
                                         <li *ngFor="let cr of contentRating" class="list-inline-item my-1">
-                                            <input type="checkbox" class="btn-check " id="{{cr}}" autocomplete="off">
+                                            <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{cr}}" autocomplete="off">
                                             <label class="btn btn-outline-primary btn-sm " for="{{cr}}">{{cr}}</label>
                                         </li>
                                     </ul>
@@ -42,7 +49,7 @@
                                         <br>
                                         <ul class="list-inline">
                                             <li *ngFor="let ps of publicationStatus" class="list-inline-item my-1">
-                                                <input type="checkbox" class="btn-check " id="{{ps}}" autocomplete="off">
+                                                <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{ps}}" autocomplete="off">
                                                 <label class="btn btn-outline-primary btn-sm " for="{{ps}}">{{ps}}</label>
                                             </li>
                                         </ul>
@@ -52,7 +59,7 @@
                                 <span class="mb-1 fw-bold">Format: </span>
                                 <ul class="list-inline">
                                     <li *ngFor="let f of format" class="list-inline-item my-1">
-                                        <input type="checkbox" class="btn-check " id="{{f}}" autocomplete="off">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{f}}" autocomplete="off">
                                         <label class="btn btn-outline-primary btn-sm " for="{{f}}">{{f}}</label>
                                     </li>
                                 </ul>
@@ -62,7 +69,7 @@
                                 <span class="mb-1 fw-bold">Genre: </span>
                                 <ul class="list-inline">
                                     <li *ngFor="let g of genre" class="list-inline-item my-1">
-                                        <input type="checkbox" class="btn-check " id="{{g}}" autocomplete="off">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{g}}" autocomplete="off">
                                         <label class="btn btn-outline-primary btn-sm " for="{{g}}">{{g}}</label>
                                     </li>
                                 </ul>
@@ -71,7 +78,7 @@
                                 <span class="mb-1 fw-bold">Theme: </span>
                                 <ul class="list-inline">
                                     <li *ngFor="let t of theme" class="list-inline-item my-1">
-                                        <input type="checkbox" class="btn-check " id="{{t}}" autocomplete="off">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{t}}" autocomplete="off">
                                         <label class="btn btn-outline-primary btn-sm" for="{{t}}">{{t}}</label>
                                     </li>
                                 </ul>

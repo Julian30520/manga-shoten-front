@@ -75,6 +75,9 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
+  onClick(evt : any ) {
+    console.log(evt.target.id)
+  }
   
 
 }
