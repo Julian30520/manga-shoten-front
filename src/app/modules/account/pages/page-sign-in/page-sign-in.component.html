@@ -1,27 +1,50 @@
-<!-- <div class="signin-page">
-  <form>
+<div class="signin-page">
+  <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
     <h3>Sign in</h3>
     <div class="form-group">
-      <label for="email">Email</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Enter Email"
-        name="email"
+        id="floatingInput"
+        placeholder="Enter username"
+        name="username"
+        ngModel
         required
+        [ngClass]="{
+          'is-valid':
+            signinForm.form.touched && signinForm.form.value['username'] != '',
+          'is-invalid':
+            signinForm.form.touched && signinForm.form.value['username'] == ''
+        }"
       />
+      <label for="floatingInput">Username</label>
     </div>
     <div class="form-group">
-      <label for="psw">Password</label>
       <input
         type="password"
         class="form-control"
-        placeholder="Enter Password"
-        name="psw"
+        id="floatingPassword"
+        placeholder=""
+        name="password"
+        ngModel
         required
+        [ngClass]="{
+          'is-valid':
+            signinForm.form.touched && signinForm.form.value['password'] != '',
+          'is-invalid':
+            signinForm.form.touched && signinForm.form.value['password'] == ''
+        }"
       />
+      <label for="floatingPassword">Mot de passe</label>
     </div>
-    <button type="submit" class="btn btn-m btn-p">Sign in</button>
+
+    <button
+      class="btn btn-m btn-p"
+      type="submit"
+      [disabled]="signinForm.invalid"
+    >
+      Sign in
+    </button>
     <div class="form-group">
       <p class="text-center">
         You don't have an account?
@@ -29,72 +52,8 @@
       </p>
     </div>
   </form>
-</div> -->
 
-<!--********************************** 
-    Formulaire Signin : 
-    - champ email et password obligatoire
-    - bouton submit disable si le formulaire est invalid
-    - doit envoyer les données vers l'url /login 
-
-**********************************-->
-<div class="signin-form text-center">
-  <main class="form-signin">
-    <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
-      <h1>Merci de vous connecter</h1>
-      <div class="form-floating">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder=""
-          name="email"
-          ngModel
-          required
-          [ngClass]="{
-            'is-valid':
-              signinForm.form.touched && signinForm.form.value['email'] != '',
-            'is-invalid':
-              signinForm.form.touched && signinForm.form.value['email'] == ''
-          }"
-        />
-        <label for="floatingInput">Adresse email</label>
-      </div>
-      <div class="form-floating">
-        <input
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder=""
-          name="password"
-          ngModel
-          required
-          [ngClass]="{
-            'is-valid':
-              signinForm.form.touched &&
-              signinForm.form.value['password'] != '',
-            'is-invalid':
-              signinForm.form.touched && signinForm.form.value['password'] == ''
-          }"
-        />
-        <label for="floatingPassword">Mot de passe</label>
-      </div>
-
-      <button
-        class="w-100 btn btn-lg btn-success"
-        type="submit"
-        [disabled]="signinForm.invalid"
-      >
-        Je me connecte !
-      </button>
-      <p>Form is dirty : {{ signinForm.form.dirty }}</p>
-      <p>Form is touched : {{ signinForm.form.touched }}</p>
-    </form>
-
-    <div *ngIf="errorForm">
-      <p class="text-danger">
-        Il manque des informations dans le formulaire...
-      </p>
-    </div>
-  </main>
+  <div *ngIf="errorForm">
+    <p class="text-danger">Il manque des informations dans le formulaire...</p>
+  </div>
 </div>

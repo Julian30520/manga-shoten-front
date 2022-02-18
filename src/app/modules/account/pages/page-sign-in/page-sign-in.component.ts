@@ -17,10 +17,10 @@ export class PageSignInComponent implements OnInit {
 
   public onSubmit(submittedForm: any): void {
     console.log(submittedForm.form.value);
-    const email = submittedForm.form.value['email'];
+    const username = submittedForm.form.value['username'];
     const password = submittedForm.form.value['password'];
-    if (email !== '' && password !== '') {
-      this.authService.signin(email, password).subscribe((resp) => {
+    if (username !== '' && password !== '') {
+      this.authService.signin(username, password).subscribe((resp) => {
         console.log('Component Page Signin: ', resp);
         this.router.navigate(['account/user']);
       });
