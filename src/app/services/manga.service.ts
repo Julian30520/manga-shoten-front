@@ -1,7 +1,8 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Params } from '../models/params';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +10,48 @@ import { environment } from 'src/environments/environment';
 export class MangaService {
   public apiUrl = environment.apiUrl;
 
+  paramsSearch: Params = {
+    limit: 0,
+    offset: 0,
+    title: '',
+    includedTags: [],
+    contentRating: [],
+    publicationDemographic: [],
+    status: []
+  }
+
   constructor(private httpClient: HttpClient) {}
 
-  getAllManga(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/30`)
+  getAllManga(params: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/all/`, {params})
   }
 
   getOneManga(id: any): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.apiUrl}manga/${id}`)
   }
+
+  getMangaBySearch(title: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/title/${title}`)
+  }
+
+
+  // https://api.mangadex.org/manga?limit=32&offset=0&includes[]=cover_art&includes[]=author&includes[]=artist&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&includedTags[]=5ca48985-9a9d-4bd8-be29-80dc0303db72&order[relevance]=desc
+
+
+  createParmas() {
+    for(const param in this.paramsSearch){
+      if(param == 'includes') {
+        this.paramsSearch.includedTags.push('lol')
+        //console.log(this.paramsSearch.includedTags)
+      }
+    }
+  }
+
+
+  filterSearch(params: any): Observable<any[]> {
+    //let params = this.createParmas()
+    console.log('manga servcice', params)
+    return this.httpClient.get<any[]>(`https://api.mangadex.org/manga`, {params})
+  }
+  
 }

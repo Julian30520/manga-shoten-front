@@ -1,3 +1,135 @@
-<div class="m-3">
-    <input type="search" name="" id="" placeholder="Search" class="form-control">
-</div>
+<section class="searchSection">
+    <div class="container">
+        <div class="row h-100">
+            <div class="col-12 d-flex flex-column justify-content-center searchWrapper align-item-center bg-light m-3 p-2 bg-opacity-75 rounded">
+                <h3 class="text-dark text-center fw-bold ">Search your favorite Manga</h3>
+                <div class="m-3 row">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
+                        <input type="search" name="" id="" placeholder="Search" class="form-control" (input)="searchBar($event)">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12">
+                        <button class="col-12 btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#filterCollapse" >
+                            <app-icon
+                            [iconName]="'filter'"
+                            [iconSize]="'1'"
+                            [iconColor]="'white'"
+                            ></app-icon>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+                <div class="modal fade" id="filterCollapse" tabindex="-1" aria-labelledby="FilterLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl modal-lg modal-fullscreen-lg-down">
+                        <div class="modal-content p-3 bg-light">
+                            <div class="row ">
+                                <div class="demographic col-lg-4">
+                                    <span class="mb-1 fw-bold">Demographic: </span>
+                                        <br>
+                                        <ul class="list-inline">
+                                            <li *ngFor="let d of demographic" class="list-inline-item my-1">
+                                                <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{d}}" autocomplete="off">
+                                                <label class="btn btn-outline-primary btn-sm " for="{{d}}">{{d}}</label>
+                                            </li>
+                                        </ul>
+                                        
+                                </div>
+                                <div class="contentRating col-lg-4">
+                                    <span class="mb-1 fw-bold">Content Rating : </span>
+                                    <br>
+                                    <ul class="list-inline">
+                                        <li *ngFor="let cr of contentRating" class="list-inline-item my-1">
+                                            <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{cr}}" autocomplete="off">
+                                            <label class="btn btn-outline-primary btn-sm " for="{{cr}}">{{cr}}</label>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div class="publicationStatus col-lg-4">
+                                    <span class="mb-1 fw-bold">Publication Status: </span>
+                                        <br>
+                                        <ul class="list-inline">
+                                            <li *ngFor="let ps of publicationStatus" class="list-inline-item my-1">
+                                                <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{ps}}" autocomplete="off">
+                                                <label class="btn btn-outline-primary btn-sm " for="{{ps}}">{{ps}}</label>
+                                            </li>
+                                        </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span class="mb-1 fw-bold">Format: </span>
+                                <ul class="list-inline">
+                                    <li *ngFor="let f of format" class="list-inline-item my-1">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{f}}" autocomplete="off">
+                                        <label class="btn btn-outline-primary btn-sm " for="{{f}}">{{f}}</label>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <div class="row">
+                                <span class="mb-1 fw-bold">Genre: </span>
+                                <ul class="list-inline">
+                                    <li *ngFor="let g of genre" class="list-inline-item my-1">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{g}}" autocomplete="off">
+                                        <label class="btn btn-outline-primary btn-sm " for="{{g}}">{{g}}</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <span class="mb-1 fw-bold">Theme: </span>
+                                <ul class="list-inline">
+                                    <li *ngFor="let t of theme" class="list-inline-item my-1">
+                                        <input type="checkbox" class="btn-check " (click)="onClick($event)" id="{{t}}" autocomplete="off">
+                                        <label class="btn btn-outline-primary btn-sm" for="{{t}}">{{t}}</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <input type="checkbox" class="btn-check " id="Shounen" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Shounen">Shounen</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Shoujo" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Shoujo">Shoujo</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Seinen" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Seinen">Seinen</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Josei" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Josei">Josei</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="none" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="none">none</label>
+                                
+                                     <input type="checkbox" class="btn-check" id="Safe" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Safe">Safe</label>
+
+                                    <input type="checkbox" class="btn-check" id="Suggestive" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Suggestive">Suggestive</label>
+
+                                    <input type="checkbox" class="btn-check" id="Erotica" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Erotica">Erotica</label>
+
+                                    <input type="checkbox" class="btn-check " id="Ongoing" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Ongoing">Ongoing</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Completed" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Completed">Completed</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Hiatus" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Hiatus">Hiatus</label>
+                                
+                                    <input type="checkbox" class="btn-check" id="Cancelled" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mx-1" for="Cancelled">Cancelled</label>
+                                
+                                -->
