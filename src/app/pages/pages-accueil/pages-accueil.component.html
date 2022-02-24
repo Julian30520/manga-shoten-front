@@ -3,6 +3,10 @@
 <section class="home py-3">
   <div class="container">
     <div class="row justify-content-center align-items-start">
+      <div *ngIf="loading" class="spinner-border"></div>
+      <ng-template #loaded>
+          <p>I am loade</p>
+      </ng-template>
       <div
         class="col-5 col-sm-4 col-md-3 col-lg-2"
         *ngFor="let data of dataManga | paginate: {

@@ -13,6 +13,8 @@ export class PagesAccueilComponent implements OnInit {
   public mangaSearch : any[];
   public searchManga: any;
 
+  public loading = true;
+
   // Paginations
   page = 1;
   offset = 0;
@@ -51,6 +53,7 @@ export class PagesAccueilComponent implements OnInit {
       ///console.log(data)
       this.dataManga = data;
       this.mangaSearch = [...data]
+      this.loading = false
      // console.log(this.dataManga);
     });
   }

@@ -4,10 +4,10 @@
             <div class="col-12 d-flex flex-column justify-content-center searchWrapper align-item-center bg-light m-3 p-2 bg-opacity-75 rounded">
                 <h3 class="text-dark text-center fw-bold ">Search your favorite Manga</h3>
                 <div class="m-3 row">
-                    <div class="col-10">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
                         <input type="search" name="" id="" placeholder="Search" class="form-control" (input)="searchBar($event)">
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2 col-md-2 col-sm-12">
                         <button class="col-12 btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#filterCollapse" >
                             <app-icon
                             [iconName]="'filter'"
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="modal fade" id="filterCollapse" tabindex="-1" aria-labelledby="FilterLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl modal-lg">
+                    <div class="modal-dialog modal-dialog-centered modal-xl modal-lg modal-fullscreen-md-down">
                         <div class="modal-content p-3 bg-light">
                             <div class="row ">
                                 <div class="demographic col-lg-4">

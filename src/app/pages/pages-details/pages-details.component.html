@@ -67,11 +67,7 @@
         <div class="row">
           <div
             class="complet col-12"
-            [ngClass]="
-              detailManga.status == 'ongoing'
-                ? 'alert  alert-success'
-                : 'alert alert-info'
-            "
+            [ngClass]="detailManga.status == 'ongoing' ? 'alert  alert-success' : 'alert alert-info'"
           >
             Publication:
             {{ detailManga.status == "ongoing" ? "On Going" : "Completed" }}
