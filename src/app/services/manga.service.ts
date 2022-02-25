@@ -27,7 +27,7 @@ export class MangaService {
   }
 
   getOneManga(id: any): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}manga/${id}`)
+    return this.httpClient.get<any[]>(`${this.apiUrl}manga/${id}`);
   }
 
   getMangaBySearch(title: any): Observable<any[]> {

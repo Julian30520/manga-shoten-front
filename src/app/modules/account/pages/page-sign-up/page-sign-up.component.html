@@ -1,42 +1,72 @@
 <div class="signup-page">
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <h3>Sign up</h3>
     <div class="form-group">
-      <label for="name">UserName<span class="required-field">*</span></label>
+      <label for="floatingInputfirstName"
+        >UserName<span class="required-field">*</span></label
+      >
       <input
         type="text"
+        id="floatingInputfirstName"
         class="form-control"
         placeholder="UserName"
-        name="name"
+        formControlName="username"
         required
+        [ngClass]="{
+          'is-valid':
+            form.controls['username'].touched &&
+            form.controls['username'].valid,
+          'is-invalid':
+            form.controls['username'].touched &&
+            !form.controls['username'].valid
+        }"
       />
-    </div>
-    <div class="form-group">
-      <label for="email">Email<span class="required-field">*</span></label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Enter Email"
-        name="email"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="psw">Password<span class="required-field">*</span></label>
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Enter Password"
-        name="psw"
-        required
-      />
-    </div>
-    <button type="submit" class="btn btn-m btn-p">Sign up</button>
-    <div class="form-group">
-      <p class="text-center">
-        Already have an account?
-        <a href="#" routerLink="../account/Login">Login</a>
-      </p>
+
+      <div class="form-group">
+        <label for="email">Email<span class="required-field">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Email"
+          formControlName="email"
+          name="email"
+          required
+          [ngClass]="{
+            'is-valid':
+              form.controls['email'].touched && form.controls['email'].valid,
+            'is-invalid':
+              form.controls['email'].touched && !form.controls['email'].valid
+          }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="psw">Password<span class="required-field">*</span></label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter Password"
+          formControlName="password"
+          name="psw"
+          required
+          [ngClass]="{
+            'is-valid':
+              form.controls['password'].touched &&
+              form.controls['password'].valid,
+            'is-invalid':
+              form.controls['password'].touched &&
+              !form.controls['password'].valid
+          }"
+        />
+      </div>
+      <button type="submit" class="btn btn-m btn-p" [disabled]="form.invalid">
+        Sign up
+      </button>
+      <div class="form-group">
+        <p class="text-center">
+          Already have an account?
+          <a href="login" (click)="redirection()">Login</a>
+        </p>
+      </div>
     </div>
   </form>
 </div>

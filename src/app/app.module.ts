@@ -11,6 +11,7 @@ import { PagesDetailsComponent } from './pages/pages-details/pages-details.compo
 import { PagesBibliComponent } from './pages/pages-bibli/pages-bibli.component';
 import { IconComponent } from './components/icon/icon.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
@@ -24,7 +25,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PagesBibliComponent,
     IconComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxPaginationModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -15,59 +15,86 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h4 class="text-right">Profile Settings</h4>
         </div>
-        <div class="row mt-2">
-          <div class="row mt-3">
+        <form class="row g-2" [formGroup]="userProfil">
+          <div class="row mt-2">
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <label for="inputLastName" class="labels">UserName</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  placeholder="UserName"
+                  id="inputFirstName"
+                  formControlName="username"
+                  value=""
+                />
+              </div>
+            </div>
             <div class="col-md-6">
-              <label class="labels">UserName</label
+              <label for="inputLastName" class="labels">Nom</label
               ><input
+                id="inputLastName"
+                formControlName="lastname"
                 type="text"
                 class="form-control"
-                placeholder="UserName"
+                placeholder="Nom"
                 value=""
               />
             </div>
+            <div class="col-md-6">
+              <label for="inputFirstName" class="labels">Prenom</label
+              ><input
+                id="inputFirstName"
+                formControlName="firstname"
+                type="text"
+                class="form-control"
+                value=""
+                placeholder="Prénom"
+              />
+            </div>
           </div>
-          <div class="col-md-6">
-            <label class="labels">Name</label
+          <div class="col-md-12">
+            <label for="inputEmail" class="labels">Email</label
             ><input
+              id="inputEmail"
+              formControlName="mail"
               type="text"
               class="form-control"
-              placeholder="first name"
+              placeholder="Enter email"
               value=""
             />
           </div>
-          <div class="col-md-6">
-            <label class="labels">Surname</label
+          <div class="col-md-12">
+            <label class="labels">Password</label
             ><input
               type="text"
               class="form-control"
+              placeholder="password"
               value=""
-              placeholder="surname"
             />
           </div>
-        </div>
-        <div class="col-md-12">
-          <label class="labels">Email</label
-          ><input
-            type="text"
-            class="form-control"
-            placeholder="enter email"
-            value=""
-          />
-        </div>
-        <div class="col-md-12">
-          <label class="labels">Password</label
-          ><input
-            type="text"
-            class="form-control"
-            placeholder="password"
-            value=""
-          />
-        </div>
-        <div class="mt-5 text-center">
-          <button class="btn-m" type="button">Save Profile</button>
-        </div>
+          <div class="mt-5 text-center">
+            <button class="btn-m" type="button">Save Profile</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <div class="container mt-5">
+    <form class="row g-2" [formGroup]="userInfo">
+        <div class="col-md-6">
+            <label for="inputFirstName" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="inputFirstName" formControlName="firstName">
+        </div>
+        <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputLastName" formControlName="lastName">
+        </div>
+        <div class="col-md-12">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" formControlName="email">
+        </div>
+    </form>
+</div> -->
