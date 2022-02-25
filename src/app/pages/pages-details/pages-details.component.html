@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row py-3 haut-row">
       <div class="col-sm-12 col-md-12 col-lg-8">
-        <div class="bg-light p-2 text-dark fw-bold bg-opacity-20 col-12">
+        <div class="bg-light p-2 text-dark fw-bold bg-opacity-20 col-12 bg-opacity-75 rounded">
           <h1
           class="display-4 "
         >
@@ -55,7 +55,9 @@
               [data]="tome"
               [idManga]="detailManga.mangaId"
             ></app-card-manga>
+            
           </div>
+          <p *ngIf="detailManga.tomes.length  == 0">Not Volumes</p>
         </div>
       </div>
       <div
@@ -65,11 +67,7 @@
         <div class="row">
           <div
             class="complet col-12"
-            [ngClass]="
-              detailManga.status == 'ongoing'
-                ? 'alert  alert-success'
-                : 'alert alert-info'
-            "
+            [ngClass]="detailManga.status == 'ongoing' ? 'alert  alert-success' : 'alert alert-info'"
           >
             Publication:
             {{ detailManga.status == "ongoing" ? "On Going" : "Completed" }}
@@ -81,7 +79,7 @@
             </a>
           </div>
           <div class="col-lg-12 col-sm-6">
-            <h4>Type:</h4>
+            <h4>Demographic:</h4>
             <a href="" class="btn btn-outline-info btn-sm my-1 text-dark">{{
               detailManga.pubDemographic
             }}</a>
@@ -100,11 +98,11 @@
             </div>
           </div>
           <div class="col-12">
-            <h4>Nombres de tomes:</h4>
+            <h4>Volumes:</h4>
             {{ detailManga.lastVolume }}
           </div>
           <div class="col-12">
-            <h4>Nombres de Chapitres:</h4>
+            <h4>Chapters:</h4>
             {{ detailManga.lastChapter == '' || detailManga.lastChapter == null ? detailManga.lastVolume * 10 : detailManga.lastChapter }}
           </div>
           <div class="col-12">
