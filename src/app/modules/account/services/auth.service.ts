@@ -24,7 +24,6 @@ export class AuthService {
 
   signup(newUser: User): Observable<any> {
     console.log(newUser);
-
     return this.http.post(`${this.apiUrl}users/sign-up`, newUser);
   }
 
@@ -46,11 +45,18 @@ export class AuthService {
   }
 
   getConnectedUserInfo(): Observable<User> | void {
+    console.log('getConnected')
     const token = localStorage.getItem(this.tokenKey);
+    
     if (token) {
+      
       const decodedToken = jwt_decode<any>(token);
       const userId = decodedToken.sub;
-      return this.http.get<User>(`${this.apiUrl}users/${userId}`);
+      // console.log('isToken', this.http.get<User>(`${this.apiUrl}users/username/${userId}`,{headers}).subscribe((user:any) => {
+      //   user
+      // }))
+
+      return userId
     } else {
       this.router.navigate(['account/signin']);
     }

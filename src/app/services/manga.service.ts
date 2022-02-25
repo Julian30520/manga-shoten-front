@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -32,6 +32,12 @@ export class MangaService {
 
   getMangaBySearch(title: any): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.apiUrl}manga/title/${title}`)
+  }
+
+  getUser(username: any): Observable<any[]> {
+    console.log('getuser')
+    const headers = new HttpHeaders().set('content-type','application/json')
+    return this.httpClient.get<any[]>(`${this.apiUrl}users/username/${username}`, {headers})
   }
 
 
