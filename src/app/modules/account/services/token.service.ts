@@ -1,35 +1,48 @@
 import { Injectable } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
-  constructor() {}
+  private tokenKey: string;
 
-  // signOut(): void {
-  //   window.sessionStorage.clear();
-  // }
+  constructor(private router: Router) {
+    this.tokenKey = environment.tokenKey;
+  }
 
-  // public saveToken(token: string): void {
-  //   window.sessionStorage.removeItem(TOKEN_KEY);
-  //   window.sessionStorage.setItem(TOKEN_KEY, token);
-  // }
+  public getToken(): string | null {
+    const token = localStorage.getItem(this.tokenKey);
+    if (token) {
+      return token;
+    } else {
+      return null;
+    }
+  }
 
-  // public getToken(): string | null {
-  //   return window.sessionStorage.getItem(TOKEN_KEY);
-  // }
+  //Savoir si l'utilisateur est connecté
+  public get isLoggedIn(): boolean {
+    let authToken = localStorage.getItem(this.tokenKey);
+    return authToken !== null ? true : false;
+  }
 
-  // public saveUser(user: any): void {
-  //   window.sessionStorage.removeItem(USER_KEY);
-  //   window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-  // }
+  // deconnecté l'utilisateur
+  public Logout() {
+    const removeToken = localStorage.removeItem(this.tokenKey);
+    if (removeToken == null) {
+      this.router.navigate(['/home']);
+    }
+  }
 
-  // public getUser(): any {
-  //   const user = window.sessionStorage.getItem(USER_KEY);
-  //   if (user) {
-  //     return JSON.parse(user);
-  //   }
-
-  //   return {};
-  // }
+  public getCurrentUserId(): number | null {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = jwt_decode<any>(token);
+      const userId = decodedToken.sub;
+      return userId;
+    } else {
+      return null;
+    }
+  }
 }

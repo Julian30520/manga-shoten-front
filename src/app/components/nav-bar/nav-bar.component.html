@@ -37,6 +37,7 @@
         </li>
         <li class="nav-item">
           <a
+            *ngIf="this.tokenService.isLoggedIn"
             routerLink="account/user"
             routerLinkActive="active-custom"
             class="nav-link"
@@ -44,7 +45,10 @@
           >
         </li>
       </ul>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <div
+        *ngIf="!this.tokenService.isLoggedIn"
+        class="d-grid gap-2 d-md-flex justify-content-md-end"
+      >
         <button
           routerLink="signup"
           class="btn btn-m btn-pme-md-2"
@@ -54,6 +58,26 @@
         </button>
         <button routerLink="login" class="btn btn-m btn-p" type="button">
           Sign In
+        </button>
+      </div>
+
+      <div
+        *ngIf="this.tokenService.isLoggedIn"
+        class="d-grid gap-2 d-md-flex justify-content-md-end"
+      >
+        <img
+          routerLink="account/user"
+          src="https://images.8tracks.com/cover/i/009/099/385/cantdecide-garou-5582.png?rect=0,0,540,540&q=98&fm=jpg&fit=max&w=960&h=960"
+          alt="Avatar"
+          class="avatar"
+        />
+        <button
+          (click)="loginOut()"
+          routerLink="login"
+          class="btn-s"
+          type="button"
+        >
+          Logout
         </button>
       </div>
     </div>

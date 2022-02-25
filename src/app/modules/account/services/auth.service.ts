@@ -38,8 +38,8 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}users/sign-in`, body).pipe(
       map((x: any) => {
-        console.log('Service : ', x.accessToken);
-        localStorage.setItem(this.tokenKey, x.accessToken);
+        console.log('Service : ', x.token);
+        localStorage.setItem(this.tokenKey, x.token);
         return x;
       })
     );

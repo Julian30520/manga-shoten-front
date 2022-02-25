@@ -9,13 +9,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./page-account.component.scss'],
 })
 export class PageAccountComponent implements OnInit {
-  public userInfo: FormGroup;
+  public userProfil: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
-    this.userInfo = this.initForm();
+    this.userProfil = this.initForm();
 
     this.authService.getConnectedUserInfo()?.subscribe((user: User) => {
-      this.userInfo = this.initForm(user);
+      this.userProfil = this.initForm(user);
     });
   }
 
@@ -23,9 +23,10 @@ export class PageAccountComponent implements OnInit {
 
   private initForm(user?: User): FormGroup {
     return this.fb.group({
-      firstName: [user ? user.firstname : ''],
-      lastName: [user ? user.lastname : ''],
-      email: [user ? user.mail : ''],
+      username: [user ? user.username : ''],
+      firstname: [user ? user.firstname : 'John'],
+      lastname: [user ? user.lastname : 'Saitama'],
+      mail: [user ? user.mail : ''],
     });
   }
 }
