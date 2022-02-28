@@ -39,4 +39,11 @@ export class PagesDetailsComponent implements OnInit {
     this.showMore = !this.showMore
     console.log(this.showMore)
   }
+
+  public upBibli(tomeNumber: any, mangaId: any) {
+    console.log(tomeNumber, mangaId)
+    this.mangaService.postTomeByUser(11,tomeNumber, mangaId).subscribe(resp => {
+      console.log(resp)
+    })
+  }
 }

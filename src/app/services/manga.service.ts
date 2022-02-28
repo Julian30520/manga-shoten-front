@@ -40,6 +40,15 @@ export class MangaService {
     return this.httpClient.get<any[]>(`${this.apiUrl}users/username/${username}`, {headers})
   }
 
+  getTomeOfUser(id: any): Observable<any[]> {
+    const headers = new HttpHeaders().set('content-type','application/json')
+    return this.httpClient.get<any[]>(`${this.apiUrl}users/${id}/tomes`, {headers})
+  }
+
+  postTomeByUser(userId: any, tomeNumber: any, mangaId: any): Observable<any> {
+    return this.httpClient.post<any>(`${this.apiUrl}users/tome/add/${userId}/${tomeNumber}/manga/${mangaId}`, {})
+  }
+
 
   // https://api.mangadex.org/manga?limit=32&offset=0&includes[]=cover_art&includes[]=author&includes[]=artist&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&includedTags[]=5ca48985-9a9d-4bd8-be29-80dc0303db72&order[relevance]=desc
 

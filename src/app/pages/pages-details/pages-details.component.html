@@ -54,6 +54,7 @@
             <app-card-manga
               [data]="tome"
               [idManga]="detailManga.mangaId"
+              (click)="upBibli(tome.tomeNumber, detailManga.mangaId)"
             ></app-card-manga>
             
           </div>
