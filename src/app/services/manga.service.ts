@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Params } from '../models/params';
 
+const headers = new HttpHeaders().set('content-type','application/json')
 @Injectable({
   providedIn: 'root',
 })
@@ -36,12 +37,10 @@ export class MangaService {
 
   getUser(username: any): Observable<any[]> {
     console.log('getuser')
-    const headers = new HttpHeaders().set('content-type','application/json')
     return this.httpClient.get<any[]>(`${this.apiUrl}users/username/${username}`, {headers})
   }
 
   getTomeOfUser(id: any): Observable<any[]> {
-    const headers = new HttpHeaders().set('content-type','application/json')
     return this.httpClient.get<any[]>(`${this.apiUrl}users/${id}/tomes`, {headers})
   }
 

@@ -4,6 +4,7 @@ import { MangaService } from 'src/app/services/manga.service';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
 
+const USER_KEY = 'auth-user'
 @Component({
   selector: 'app-page-account',
   templateUrl: './page-account.component.html',
@@ -23,7 +24,7 @@ export class PageAccountComponent implements OnInit {
   ngOnInit(): void {
     console.log('account page', this.username)
     this.mangaService.getUser(this.username).subscribe((user: any) => {
-      console.log('user', user)
+      window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
       this.userProfil = this.initForm(user);
     });
   }

@@ -1,3 +1,8 @@
 <div class="container">
-  <h2>Bibliotheque</h2>
+  <h2> My bibliotheque</h2>
+  <div class="row justify-content-center align-items-start">
+    <div class="col-5 col-sm-4 col-md-3 col-lg-2" *ngFor="let tome of tomes">
+      <app-card-manga [data]="tome" [idManga]="tome.manga.mangaId"></app-card-manga>
+    </div>
+  </div>
 </div>
