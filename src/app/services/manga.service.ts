@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Params } from '../models/params';
+import { TokenService } from '../modules/account/services/token.service';
 
 const headers = new HttpHeaders().set('content-type','application/json')
 @Injectable({
@@ -45,6 +46,7 @@ export class MangaService {
   }
 
   postTomeByUser(userId: any, tomeNumber: any, mangaId: any): Observable<any> {
+    
     return this.httpClient.post<any>(`${this.apiUrl}users/tome/add/${userId}/${tomeNumber}/manga/${mangaId}`, {})
   }
 

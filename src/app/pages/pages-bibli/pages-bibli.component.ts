@@ -11,17 +11,23 @@ const USER_KEY = 'auth-user'
 export class PagesBibliComponent implements OnInit {
 
   tomes: any;
+  titleEn: any[];
+  manga: any[];
 
-
-  constructor(private mangaService: MangaService, private tokenSerice: TokenService) { }
+  constructor(private mangaService: MangaService, private tokenService: TokenService) { 
+    this.titleEn = [];
+    this.manga = []
+  }
 
   ngOnInit(): void {
 
-    const userid = this.tokenSerice.getUser().id;
+    const userid = this.tokenService.getUser().id;
     this.mangaService.getTomeOfUser(userid).subscribe((tomes) => {
-      console.log(tomes)
       this.tomes = tomes;
     })
+
+    
+    
   }
 
 }
