@@ -43,22 +43,18 @@ export class TokenService {
     const token = this.getToken();
     if (token) {
       const decodedToken = jwt_decode<any>(token);
-      const username = decodedToken.sub;
-      // this.mangaService.getUser(username).subscribe((user: any) => {
-      //   window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-
-      // });
-      return username;
+      const userId = decodedToken.userId;
+      return userId;
     } else {
       return null;
     }
   }
 
-  public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY)
-    if(user) {
-      return JSON.parse(user)
-    }
-    return {}
-  }
+  // public getUser(): any {
+  //   const user = window.sessionStorage.getItem(USER_KEY)
+  //   if(user) {
+  //     return JSON.parse(user)
+  //   }
+  //   return {}
+  // }
 }

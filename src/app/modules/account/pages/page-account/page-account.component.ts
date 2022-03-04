@@ -24,7 +24,7 @@ export class PageAccountComponent implements OnInit {
   ngOnInit(): void {
     console.log('account page', this.username)
     this.mangaService.getUser(this.username).subscribe((user: any) => {
-      window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+      // window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
       this.userProfil = this.initForm(user);
     });
   }

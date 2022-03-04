@@ -42,7 +42,7 @@ export class PagesDetailsComponent implements OnInit {
   }
 
   public upBibli(tomeNumber: any, mangaId: any) {
-    const userid = this.tokenService.getUser().id;
+    const userid = this.tokenService.getCurrentUserId();
     console.log(tomeNumber, mangaId)
     this.mangaService.postTomeByUser(userid,tomeNumber, mangaId).subscribe(resp => {
       console.log(resp)
