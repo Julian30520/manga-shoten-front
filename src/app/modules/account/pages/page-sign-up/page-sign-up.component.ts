@@ -47,8 +47,8 @@ export class PageSignUpComponent implements OnInit {
       username: UserNameValue,
       mail: emailValue,
       password: passwordValue,
-      firstname: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       // role: ['users'],
       role: {
         roleId: 2,

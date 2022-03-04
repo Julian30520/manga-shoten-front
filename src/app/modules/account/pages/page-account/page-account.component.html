@@ -15,7 +15,7 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h4 class="text-right">Profile Settings</h4>
         </div>
-        <form class="row g-2" [formGroup]="userProfil">
+        <form class="row g-2" [formGroup]="userProfil" (ngSubmit)="submit()">
           <div class="row mt-2">
             <div class="row mt-3">
               <div class="col-md-6">
@@ -74,7 +74,9 @@
             />
           </div>
           <div class="mt-5 text-center">
-            <button class="btn-m" type="button">Save Profile</button>
+            <button type="button" class="btn-m" (click)="submit()">
+              Save Profile
+            </button>
           </div>
         </form>
       </div>
