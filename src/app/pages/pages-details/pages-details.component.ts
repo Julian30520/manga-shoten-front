@@ -14,26 +14,27 @@ export class PagesDetailsComponent implements OnInit {
   detailManga: any;
   cover;
   showMore: boolean;
-  constructor(private mangaService: MangaService, private route: ActivatedRoute, private tokenService: TokenService) {
+  idTomes= [];
+  constructor(private mangaService: MangaService, 
+              private route: ActivatedRoute,
+              private tokenService: TokenService) {
     this.detailManga;
     this.cover = ``;
     this.showMore = false
   }
 
   ngOnInit(): void {
-    console.log(history);
-    this.detailManga = history.state[0];
-
+    /**Params de la route */
     const routeParams = this.route.snapshot.paramMap
     const mangaIdFromRoute= routeParams.get('id');
-    console.log(mangaIdFromRoute)
+   // console.log(mangaIdFromRoute)
 
     this.mangaService.getOneManga(mangaIdFromRoute).subscribe((response) => {
       console.log(response)
       this.detailManga = response
       this.cover = `https://uploads.mangadex.org/covers/${this.detailManga.mangaId}/${this.detailManga.cover}`;
     })
-
+    this.getIdTome()
   }
 
   public letShowMore () {
@@ -48,4 +49,23 @@ export class PagesDetailsComponent implements OnInit {
       console.log(resp)
     })
   }
+
+  public getAllTomes() {
+    const userId = this.tokenService.getCurrentUserId();
+    this.mangaService.postAllTome(userId, this.detailManga.mangaId).subscribe(resp => {
+      console.log(resp)
+    })
+  }
+
+  public getIdTome() {
+      const userId = this.tokenService.getCurrentUserId();
+      this.mangaService.getIdTome(userId).subscribe(resp => {
+        this.idTomes = resp
+        console.log('id tomes',this.idTomes);
+        console.log(this.detailManga.tomes)
+        this.idTomes.map(el => {
+        })
+        
+      })
+    }
 }

@@ -9,15 +9,15 @@ const USER_KEY = 'auth-user'
   templateUrl: './pages-bibli.component.html',
   styleUrls: ['./pages-bibli.component.scss']
 })
+
+
 export class PagesBibliComponent implements OnInit {
 
   tomes: any;
-  titleEn: any[];
   bibli: any[];
   manga!: Manga; 
 
   constructor(private mangaService: MangaService, private tokenService: TokenService) { 
-    this.titleEn = [];
     this.bibli = []
   }
 
@@ -25,25 +25,25 @@ export class PagesBibliComponent implements OnInit {
 
     const userid = this.tokenService.getCurrentUserId();
     this.mangaService.getTomeOfUser(userid).subscribe((tome) => {
-      this.tomes = tome;
-      this.manga = new Manga( '','', []);
-      // console.log(tome)
+      // this.tomes = tome;
       for(let t of tome) {
-        console.log(t)
-        this.manga.mangaId = t.manga.mangaId
-        this.manga.title = t.manga.titleEn
-          if(this.manga.mangaId == t.manga.mangaId ) {
-            this.manga.tomes.push(t)
-          }
-        this.manga
-        // console.log(this.manga)
+        this.verify(this.bibli, t)
       }
-      this.bibli.push(this.manga)
-      console.log('bibli', this.bibli)
     })
-
-    
-    
   }
+
+  public verify(bibli: any, tome:any ) {
+    const indexManga = bibli.map((book:any) => book.mangaId).indexOf(tome.manga.mangaId)
+    this.manga = new Manga( '','', []);
+    if(indexManga === -1){
+      this.manga.mangaId = tome.manga.mangaId
+      this.manga.title = tome.manga.titleEn
+      this.manga.tomes.push(tome)
+      this.bibli.push(this.manga)
+    } else {
+      this.bibli[indexManga].tomes.push(tome)
+    }
+     // console.log('bibli', this.bibli)
+  } 
 
 }
