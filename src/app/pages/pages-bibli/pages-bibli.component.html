@@ -1,20 +1,33 @@
 <section class="py-5 mb-3 bg-light">
   <div class="container text-center">
-    <h2 class="display-4"> My bibliotheque</h2>
+    <h2 class="display-4">My bibliotheque</h2>
   </div>
 </section>
 <section class="py-3">
   <div class="container">
     <div class="row justify-content-center align-items-start">
       <div class="col-12 row" *ngFor="let manga of bibli">
-        <h6 class="bg-light py-2">
-          {{manga.title}}
-        </h6>
-        <div class="col-5 col-sm-4 col-md-3 col-lg-2" *ngFor="let tome of manga.tomes">
-          <app-card-manga [data]="tome" [idManga]="manga.mangaId"></app-card-manga>
+        <div class="row d-flex justify-content-between">
+          <h6 class="bg-light py-2">
+            {{ manga.title }}
+          </h6>
+          <app-icon
+            [iconName]="'bi bi-x-square'"
+            [iconSize]="'1'"
+            [iconColor]="'red'"
+          ></app-icon>
+        </div>
+        <div
+          class="col-5 col-sm-4 col-md-3 col-lg-2"
+          *ngFor="let tome of manga.tomes"
+        >
+          <app-card-manga
+            (click)="deleteTome(tome.tomeId)"
+            [data]="tome"
+            [idManga]="manga.mangaId"
+          ></app-card-manga>
         </div>
       </div>
     </div>
   </div>
 </section>
-

@@ -16,5 +16,6 @@ export class NavBarComponent implements OnInit {
 
   loginOut() {
     this.tokenService.Logout();
+    // location.reload();
   }
 }
