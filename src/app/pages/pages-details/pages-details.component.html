@@ -47,6 +47,12 @@
     <div class="row d-flex flex-lg-row flex-column-reverse">
       <div class="col-sm-12 col-md-12 col-lg-8 py-3">
         <div class="row justify-content-center align-items-start">
+          <div class="col-12">
+            <div class="form-check form-switch">
+              <input type="checkbox" class="form-check-input" role="switch" id="getAllManga" (click)="getAllTomes()">
+              <label for="getAllManga" class="form-check-label">Get All Manga</label>
+            </div>
+          </div>
           <div
             *ngFor="let tome of detailManga.tomes"
             class="col-5 col-sm-4 col-md-3 col-lg-3"
@@ -58,7 +64,9 @@
             ></app-card-manga>
             
           </div>
-          <p *ngIf="detailManga.tomes.length  == 0">Not Volumes</p>
+          <div class="border bg-light p-5 text-center my-3" *ngIf="detailManga.tomes.length  == 0">
+            Not Volume
+          </div>
         </div>
       </div>
       <div

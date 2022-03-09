@@ -1,8 +1,20 @@
-<div class="container">
-  <h2> My bibliotheque</h2>
-  <div class="row justify-content-center align-items-start">
-    <div class="col-5 col-sm-4 col-md-3 col-lg-2" *ngFor="let tome of tomes">
-      <app-card-manga [data]="tome" [idManga]="tome.manga.mangaId"></app-card-manga>
+<section class="py-5 mb-3 bg-light">
+  <div class="container text-center">
+    <h2 class="display-4"> My bibliotheque</h2>
+  </div>
+</section>
+<section class="py-3">
+  <div class="container">
+    <div class="row justify-content-center align-items-start">
+      <div class="col-12 row" *ngFor="let manga of bibli">
+        <h6 class="bg-light py-2">
+          {{manga.title}}
+        </h6>
+        <div class="col-5 col-sm-4 col-md-3 col-lg-2" *ngFor="let tome of manga.tomes">
+          <app-card-manga [data]="tome" [idManga]="manga.mangaId"></app-card-manga>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
