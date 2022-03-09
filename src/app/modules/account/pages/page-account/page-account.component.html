@@ -1,21 +1,28 @@
 <div class="container rounded bg-white mt-5 mb-5">
   <div class="row">
-    <div class="col-md-3 border-right">
-      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img
+    <form class="row g-2" [formGroup]="userProfil" (ngSubmit)="submit()">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <!-- <img
           class="rounded-circle mt-5"
           width="50%"
           src="https://images.8tracks.com/cover/i/009/099/385/cantdecide-garou-5582.png?rect=0,0,540,540&q=98&fm=jpg&fit=max&w=960&h=960"
-        /><span class="font-weight-bold">Garou</span
-        ><span class="text-black-50">MangaShoten@gmail.com</span><span> </span>
-      </div>
-    </div>
-    <div class="col-md-5 border-right">
-      <div class="p-3 py-5">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="text-right">Profile Settings</h4>
+          src="https://images.8tracks.com/cover/i/009/099/385/cantdecide-garou-5582.png?rect=0,0,540,540&q=98&fm=jpg&fit=max&w=960&h=960"
+          
+        />  -->
+          <img class="avatar mt-5" src="https://signavatar.com/66475_v.gif" />
+          <h5 class="font-weight-bold">{{ username | titlecase }}</h5>
+          <span>{{ this.userProfil.value.mail }}</span>
+          <button (click)="alertDelete()" type="button" class="btn-s mt-3">
+            Delete your account
+          </button>
         </div>
-        <form class="row g-2" [formGroup]="userProfil" (ngSubmit)="submit()">
+      </div>
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Profile Settings</h4>
+          </div>
           <div class="row mt-2">
             <div class="row mt-3">
               <div class="col-md-6">
@@ -34,7 +41,7 @@
               <label for="inputLastName" class="labels">Nom</label
               ><input
                 id="inputLastName"
-                formControlName="lastname"
+                formControlName="lastName"
                 type="text"
                 class="form-control"
                 placeholder="Nom"
@@ -45,7 +52,7 @@
               <label for="inputFirstName" class="labels">Prenom</label
               ><input
                 id="inputFirstName"
-                formControlName="firstname"
+                formControlName="firstName"
                 type="text"
                 class="form-control"
                 value=""
@@ -75,12 +82,16 @@
           </div>
           <div class="mt-5 text-center">
             <button type="button" class="btn-m" (click)="submit()">
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm mr-1"
+              ></span>
               Save Profile
             </button>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 

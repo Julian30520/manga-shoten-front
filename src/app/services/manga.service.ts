@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Params } from '../models/params';
+import { TokenService } from '../modules/account/services/token.service';
 
+const headers = new HttpHeaders().set('content-type','application/json')
 @Injectable({
   providedIn: 'root',
 })
@@ -36,16 +38,15 @@ export class MangaService {
 
   getUser(username: any): Observable<any[]> {
     console.log('getuser')
-    const headers = new HttpHeaders().set('content-type','application/json')
     return this.httpClient.get<any[]>(`${this.apiUrl}users/username/${username}`, {headers})
   }
 
   getTomeOfUser(id: any): Observable<any[]> {
-    const headers = new HttpHeaders().set('content-type','application/json')
     return this.httpClient.get<any[]>(`${this.apiUrl}users/${id}/tomes`, {headers})
   }
 
   postTomeByUser(userId: any, tomeNumber: any, mangaId: any): Observable<any> {
+    
     return this.httpClient.post<any>(`${this.apiUrl}users/tome/add/${userId}/${tomeNumber}/manga/${mangaId}`, {})
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TokenService } from 'src/app/modules/account/services/token.service';
 import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class PagesDetailsComponent implements OnInit {
   detailManga: any;
   cover;
   showMore: boolean;
-  constructor(private mangaService: MangaService, private route: ActivatedRoute) {
+  constructor(private mangaService: MangaService, private route: ActivatedRoute, private tokenService: TokenService) {
     this.detailManga;
     this.cover = ``;
     this.showMore = false
@@ -41,8 +42,9 @@ export class PagesDetailsComponent implements OnInit {
   }
 
   public upBibli(tomeNumber: any, mangaId: any) {
+    const userid = this.tokenService.getCurrentUserId();
     console.log(tomeNumber, mangaId)
-    this.mangaService.postTomeByUser(11,tomeNumber, mangaId).subscribe(resp => {
+    this.mangaService.postTomeByUser(userid,tomeNumber, mangaId).subscribe(resp => {
       console.log(resp)
     })
   }

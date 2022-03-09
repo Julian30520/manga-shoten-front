@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
+import { MangaService } from 'src/app/services/manga.service';
+
+const USER_KEY = 'auth-user'
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
   private tokenKey: string;
+  
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private mangaService: MangaService) {
     this.tokenKey = environment.tokenKey;
   }
 
@@ -39,10 +43,18 @@ export class TokenService {
     const token = this.getToken();
     if (token) {
       const decodedToken = jwt_decode<any>(token);
-      const userId = decodedToken.sub;
+      const userId = decodedToken.userId;
       return userId;
     } else {
       return null;
     }
   }
+
+  // public getUser(): any {
+  //   const user = window.sessionStorage.getItem(USER_KEY)
+  //   if(user) {
+  //     return JSON.parse(user)
+  //   }
+  //   return {}
+  // }
 }
