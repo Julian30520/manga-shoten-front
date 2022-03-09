@@ -64,7 +64,9 @@
             ></app-card-manga>
             
           </div>
-          <p *ngIf="detailManga.tomes.length  == 0">Not Volumes</p>
+          <div class="border bg-light p-5 text-center my-3" *ngIf="detailManga.tomes.length  == 0">
+            Not Volume
+          </div>
         </div>
       </div>
       <div

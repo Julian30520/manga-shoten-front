@@ -9,6 +9,8 @@ export class CardMangaComponent implements OnInit {
   @Input() data: any;
   cover: string;
   @Input() idManga: any;
+  @Input() icon: boolean = true;
+
   color = [
     '#0dcaf0',
     '#adb5bd',

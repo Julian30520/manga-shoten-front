@@ -7,7 +7,9 @@
   <div class="container">
     <div class="row justify-content-center align-items-start">
       <div class="col-12 row" *ngFor="let manga of bibli">
-        <h6 class="bg-light py-2">{{manga.title}}</h6>
+        <h6 class="bg-light py-2">
+          {{manga.title}}
+        </h6>
         <div class="col-5 col-sm-4 col-md-3 col-lg-2" *ngFor="let tome of manga.tomes">
           <app-card-manga [data]="tome" [idManga]="manga.mangaId"></app-card-manga>
         </div>

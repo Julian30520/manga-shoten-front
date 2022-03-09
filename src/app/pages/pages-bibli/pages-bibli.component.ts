@@ -34,7 +34,7 @@ export class PagesBibliComponent implements OnInit {
 
   public verify(bibli: any, tome:any ) {
     const indexManga = bibli.map((book:any) => book.mangaId).indexOf(tome.manga.mangaId)
-    this.manga = new Manga( '','', []);
+    this.manga = new Manga( '','', [],'');
     if(indexManga === -1){
       this.manga.mangaId = tome.manga.mangaId
       this.manga.title = tome.manga.titleEn
@@ -43,7 +43,7 @@ export class PagesBibliComponent implements OnInit {
     } else {
       this.bibli[indexManga].tomes.push(tome)
     }
-     // console.log('bibli', this.bibli)
+    //console.log('bibli', this.bibli)
   } 
 
 }
