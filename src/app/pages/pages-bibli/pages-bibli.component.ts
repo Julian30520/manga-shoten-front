@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Manga } from 'src/app/models/manga';
 import { TokenService } from 'src/app/modules/account/services/token.service';
 import { MangaService } from 'src/app/services/manga.service';
+import Swal from 'sweetalert2';
 
 const USER_KEY = 'auth-user';
 @Component({
@@ -47,6 +48,7 @@ export class PagesBibliComponent implements OnInit {
       this.bibli[indexManga].tomes.push(tome);
     }
     console.log('bibli', this.bibli);
+    // this.bibli = this.bibli.sort((a,b) => b.manga.title - a.manga.title)
   }
 
   deleteTome(tomeId: any) {
@@ -58,10 +60,33 @@ export class PagesBibliComponent implements OnInit {
   }
 
   deleteManga(mangaId: any) {
+    console.log('delete')
     const userid = this.tokenService.getCurrentUserId();
     this.mangaService.deleteMangaBibli(userid, mangaId).subscribe((resp) => {
+      this.alertDeleteMangaSucces()
+      setTimeout(() => {
       location.reload();
+      }, 2000);
     });
     // console.log('tome supprimer'));
+  }
+
+  alertDeleteMangaSucces() {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Manga Delete successfully',
+    });
   }
 }

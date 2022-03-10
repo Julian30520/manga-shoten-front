@@ -75,7 +75,7 @@ export class MangaService {
   /**Delete Manga From Bibliotheque */
   deleteMangaBibli(idUser: any, idManga: any): Observable<any> {
     return this.httpClient.delete(
-      `${this.apiUrl}users/manga/remove/${idUser}/${idManga}`
+      `${this.apiUrl}users/manga/remove/${idUser}/${idManga}`, {headers}
     );
   }
   /**Delete Tome From Bibliotheque */
