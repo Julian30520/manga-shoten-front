@@ -7,13 +7,14 @@
   <div class="container">
     <div class="row justify-content-center align-items-start">
       <div class="col-12 row" *ngFor="let manga of bibli">
-        <div class="row d-flex justify-content-between">
-          <h6 class="bg-light py-2">
+        <div class="row bg-light py-2 mb-2 d-flex justify-content-between align-items-center shadow-sm">
+          <h6 class="col-11 fs-4 h-100 align-items-center pt-2">
             {{ manga.title }}
           </h6>
           <app-icon
+            class="col-1 text-end"
             [iconName]="'bi bi-x-square'"
-            [iconSize]="'1'"
+            [iconSize]="'2'"
             [iconColor]="'red'"
           ></app-icon>
         </div>
@@ -23,6 +24,7 @@
         >
           <app-card-manga
             (click)="deleteTome(tome.tomeId)"
+            [icon]="false"
             [data]="tome"
             [idManga]="manga.mangaId"
           ></app-card-manga>
