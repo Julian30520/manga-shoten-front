@@ -9,13 +9,14 @@ import {
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
+import { TokenService } from './services/token.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   private tokenKey: string;
-  constructor(private router: Router) {
+  constructor(private router: Router, private tokenService: TokenService) {
     this.tokenKey = environment.tokenKey;
   }
 
@@ -38,7 +39,8 @@ export class AuthGuard implements CanActivate {
         console.log("Date d'exp decodedToken : ", decodedToken.exp);
         const dateExp = new Date(decodedToken.exp * 1000);
         if (new Date() >= dateExp) {
-          // le token a expiré, je n'autorise pas l'accès
+          // une fois que le token a expiré je logout automatiquement l'utilisateur, je le renvoi vers home
+          this.tokenService.Logout();
           this.router.navigate(['account/signin']);
           return false;
         }
