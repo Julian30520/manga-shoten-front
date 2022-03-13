@@ -13,7 +13,7 @@
           <img class="avatar my-2" src="https://signavatar.com/66475_v.gif" />
           <h5 class="font-weight-bold">{{ username | titlecase }}</h5>
           <span>{{ this.userProfil.value.mail }}</span>
-          <button (click)="alertDelete()" type="button" class="btn-s mt-3">
+          <button (click)="alertDelete()" type="button" class="btn-hover logOut mt-3">
             Delete your account
           </button>
         </div>
@@ -81,7 +81,7 @@
             />
           </div>
           <div class="mt-5 text-center">
-            <button type="button" class="btn-m" (click)="submit()">
+            <button type="button" class="btnSignUp" (click)="submit()">
               <span
                 *ngIf="loading"
                 class="spinner-border spinner-border-sm mr-1"

@@ -1,6 +1,14 @@
 .topBibli {
-  background-image: no-repeat center / cover
-    url("https://mocah.org/thumbs/4539626-akira-katsuhiro-otomo-monochrome-factor-manga.png");
+  // width: 450px;
+  // height: 100px;
+  background-size: contain;
+  min-height: 250px;
+  background: no-repeat center url("../../asset/wallpaperbetter.com_1920x1080\ \(1\)\ \(1\)\ \(1\).jpg");
+  // ('https://cdn.dribbble.com/users/3558835/screenshots/9197759/media/335937b8347f24d2e860dfb52312f1a2.jpg?compress=1&resize=1200x900&vertical=top');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
 }
 
 .deleteIcon {
@@ -13,3 +21,7 @@
   width: 40px;
   height: 40px;
 }
+
+// section {
+//   font-family: var(--font);
+// }

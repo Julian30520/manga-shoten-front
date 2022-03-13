@@ -52,9 +52,11 @@ body {
 @import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap");
 :root {
   --logoMangaShoten: "Abril Fatface", cursive;
   --font-family: "Roboto", sans-serif;
+  --font: "Merriweather", serif;
   --primary: #6fb290;
   --secondary: #9fccb5;
   --accent: #079eec;
@@ -62,29 +64,29 @@ body {
   --text-regular: #2d3436;
 }
 
-.btn-m {
-  padding: 5px 20px;
-  background-color: var(--primary);
-  border: 0;
-  border-radius: 5px;
-  font-weight: 500;
-  font-family: var(--font-family);
-  color: white;
-  &-p {
-    background-color: var(--primary);
-    color: white;
-    cursor: pointer;
-  }
-  &:hover {
-    background-color: var(--secondary);
-    color: white;
-  }
-  transition: background-color 0.4s;
-  &-s {
-    background-color: rgb(211, 130, 105);
-    color: white;
-  }
-}
+// .btn-m {
+//   padding: 5px 20px;
+//   background-color: var(--primary);
+//   border: 0;
+//   border-radius: 5px;
+//   font-weight: 500;
+//   font-family: var(--font-family);
+//   color: white;
+//   &-p {
+//     background-color: var(--primary);
+//     color: white;
+//     cursor: pointer;
+//   }
+//   &:hover {
+//     background-color: var(--secondary);
+//     color: white;
+//   }
+//   transition: background-color 0.4s;
+//   &-s {
+//     background-color: rgb(211, 130, 105);
+//     color: white;
+//   }
+// }
 
 .logo {
   font-family: var(--logoMangaShoten);
@@ -142,7 +144,7 @@ body {
   text-decoration: none;
   color: var(--secondary);
   border: 2px solid var(--secondary);
-  font-family: var(--font-family);
+  font-family: var(--font);
   border-radius: 5px;
   font-weight: 500;
   display: inline-block;
@@ -179,7 +181,7 @@ body {
   color: white;
   background-color: #6fb290;
   border: 2px solid var(--secondary);
-  font-family: var(--font-family);
+  font-family: var(--font);
   border-radius: 5px;
   font-weight: 500;
   display: inline-block;
@@ -207,4 +209,51 @@ body {
       transition: all 0.5s ease-in-out;
     }
   }
+}
+
+.btn-hover {
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 10px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #2ea4d6,
+    #5589e4,
+    #1abef5,
+    #4382e0
+  );
+}
+
+.btn-hover:hover {
+  color: white;
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.logOut {
+  border-radius: 6px;
+  padding: 5px 20px;
+  background-image: linear-gradient(
+    to right,
+    #f86e75,
+    #eb8989,
+    #d84f6d,
+    #f33434
+  );
 }
