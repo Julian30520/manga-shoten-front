@@ -92,7 +92,7 @@ export class PageAccountComponent implements OnInit {
       })
       .subscribe(() => {
         this.tokenService.Logout();
-        console.log('Dégage on veut pas de toi');
+        console.log('Dégage on ne veut pas de toi');
       });
   }
 
@@ -119,11 +119,18 @@ export class PageAccountComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.suppUser();
-        Swal.fire(
-          'Deleted!',
-          'Your Account has been deleted. さらばだ !!',
-          'success'
-        );
+        Swal.fire({
+          // 'Deleted!',
+          // 'Your Account has been deleted. さらばだ !!',
+          // 'success'
+          title: 'Deleted!',
+          text: 'Your Account has been deleted. さらばだ !!',
+          imageUrl: 'https://c.tenor.com/0AEB38Hz1PMAAAAC/death-note-light.gif',
+          imageWidth: 400,
+          imageHeight: 300,
+          imageAlt: 'Custom image',
+          timer: 4000,
+        });
       }
     });
   }

@@ -10,15 +10,15 @@
   <div class="container">
     <div class="row py-3 haut-row">
       <div class="col-sm-12 col-md-12 col-lg-8">
-        <div class="bg-light p-2 text-dark fw-bold bg-opacity-20 col-12 bg-opacity-75 rounded">
-          <h1
-          class="display-4 "
+        <div
+          class="bg-light p-2 text-dark fw-bold bg-opacity-20 col-12 bg-opacity-75 rounded"
         >
-          {{ detailManga.titleEn }}
-        </h1>
-        <h5 class="text-end">{{detailManga.titleJp}}</h5>
+          <h1 class="display-4">
+            {{ detailManga.titleEn }}
+          </h1>
+          <h5 class="text-end">{{ detailManga.titleJp }}</h5>
         </div>
-        
+
         <div class="mt-5 p-2">
           <h3>Synopsis</h3>
           <p class="fs-6">{{ detailManga.synopsis }}</p>
@@ -37,8 +37,14 @@
         aria-expanded="true"
         aria-controls="collapseMe"
         (click)="letShowMore()"
-        ><app-icon [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"></app-icon> Show more <app-icon [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"></app-icon></a
-      >
+        ><app-icon
+          [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"
+        ></app-icon>
+        Show more
+        <app-icon
+          [iconName]="showMore ? 'chevron-double-up' : 'chevron-double-down'"
+        ></app-icon
+      ></a>
     </div>
   </div>
 </section>
@@ -49,8 +55,16 @@
         <div class="row justify-content-center align-items-start">
           <div class="col-12">
             <div class="form-check form-switch">
-              <input type="checkbox" class="form-check-input" role="switch" id="getAllManga" (click)="getAllTomes()">
-              <label for="getAllManga" class="form-check-label">Get All Manga</label>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                role="switch"
+                id="getAllManga"
+                (click)="getAllTomes()"
+              />
+              <label for="getAllManga" class="form-check-label"
+                >Get All Manga</label
+              >
             </div>
           </div>
           <div
@@ -62,9 +76,14 @@
               [idManga]="detailManga.mangaId"
               (click)="upBibli(tome.tomeNumber, detailManga.mangaId)"
             ></app-card-manga>
-            
+            <app-button-tome
+              (click)="upBibli(tome.tomeNumber, detailManga.mangaId)"
+            ></app-button-tome>
           </div>
-          <div class="border bg-light p-5 text-center my-3" *ngIf="detailManga.tomes.length  == 0">
+          <div
+            class="border bg-light p-5 text-center my-3"
+            *ngIf="detailManga.tomes.length == 0"
+          >
             Not Volume
           </div>
         </div>
@@ -76,7 +95,11 @@
         <div class="row">
           <div
             class="complet col-12"
-            [ngClass]="detailManga.status == 'ongoing' ? 'alert  alert-success' : 'alert alert-info'"
+            [ngClass]="
+              detailManga.status == 'ongoing'
+                ? 'alert  alert-success'
+                : 'alert alert-info'
+            "
           >
             Publication:
             {{ detailManga.status == "ongoing" ? "On Going" : "Completed" }}
@@ -112,11 +135,17 @@
           </div>
           <div class="col-12">
             <h4>Chapters:</h4>
-            {{ detailManga.lastChapter == '' || detailManga.lastChapter == null ? detailManga.lastVolume * 10 : detailManga.lastChapter }}
+            {{
+              detailManga.lastChapter == "" || detailManga.lastChapter == null
+                ? detailManga.lastVolume * 10
+                : detailManga.lastChapter
+            }}
           </div>
           <div class="col-12">
             <h4>Release Year</h4>
-            {{detailManga.releaseDate == 'null' ? '' : detailManga.releaseDate }}
+            {{
+              detailManga.releaseDate == "null" ? "" : detailManga.releaseDate
+            }}
           </div>
         </div>
       </div>
