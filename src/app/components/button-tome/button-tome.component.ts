@@ -87,6 +87,7 @@ export class ButtonTomeComponent {
       this.itemStates.find((i) => i.Id === ItemId).state = 'ready';
     }, 1800);
   }
+  
   getItemState(ItemId: string): string {
     return this.itemStates.find((i) => i.Id === ItemId).state;
   }

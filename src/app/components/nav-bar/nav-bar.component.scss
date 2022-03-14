@@ -72,7 +72,7 @@ a {
 }
 
 .navbar-toggler.collapsed .toggler-icon {
-  // background-color: black;
+  background-color: black;
 }
 
 .btn-s {
@@ -140,8 +140,6 @@ a {
   }
 }
 
-
-
 .overlay {
   position: absolute;
   top: 0;
@@ -154,7 +152,7 @@ a {
 
 .container:hover .overlay {
   display: block;
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .container:hover .title {
@@ -164,11 +162,11 @@ a {
 .btnAddTome {
   position: absolute;
   width: 500px;
-  left:0;
+  left: 0;
   top: 180px;
   text-align: center;
   opacity: 0;
-  transition: opacity .35s ease;
+  transition: opacity 0.35s ease;
 }
 
 .btnAddTome a {

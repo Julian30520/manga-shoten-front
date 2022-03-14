@@ -10,9 +10,7 @@ import { User } from '../models/user';
 export class UserService {
   public apiUrl = environment.apiUrl;
   constructor(private httpClient: HttpClient) {}
-  // getUserBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'user', { responseType: 'text' });
-  // }
+
   UpdateUser(userUpdate: User): Observable<any[]> {
     const body = { userUpdate: userUpdate };
     console.log('UpdateUser');
