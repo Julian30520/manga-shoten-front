@@ -17,11 +17,15 @@
   color: red;
 }
 
+section {
+  font-family: var(--font);
+}
+
 @media screen and(max-width: 810px) {
   .haut {
     top: -120px;
   }
-  .contenue{
+  .contenue {
     top: -120px;
   }
 }

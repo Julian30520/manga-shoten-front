@@ -4,6 +4,13 @@ a {
   font-weight: 300;
   font-size: 18px;
 }
+.ntm {
+  margin-top: -10px;
+}
+
+.back {
+  background: linear-gradient(45deg, #ffffff, #f5f5f5);
+}
 
 .logo {
   font-family: var(--logoMangaShoten);
@@ -86,5 +93,91 @@ a {
   vertical-align: middle;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 12px;
+}
+
+.navlik {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  margin-left: 5px;
+  font-size: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+  &:after,
+  &:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff;
+    transition: all 1s;
+  }
+  &:after {
+    top: -1px;
+    left: -1px;
+    // border-top: 5px solid #6fb290;
+    // border-left: 5px solid #6fb290;
+  }
+  &:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 3px solid #6fb290;
+    // border-right: 5px solid #6fb290;
+  }
+  &:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    // background:rgba(0,0,0,.5);
+    // color:white;
+    &:before,
+    &:after {
+      width: 100%;
+      height: 100%;
+      // border-color:white;
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.container:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.container:hover .title {
+  top: 90px;
+}
+
+.btnAddTome {
+  position: absolute;
+  width: 500px;
+  left: 0;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.btnAddTome a {
+  width: 200px;
+  padding: 12px 48px;
+  text-align: center;
+  color: white;
+  border: solid 2px white;
+  z-index: 1;
+}
+
+.container:hover .button {
+  opacity: 1;
 }

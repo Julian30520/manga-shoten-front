@@ -1,10 +1,62 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$mat-primary-scheme: (
+  100: #c5cae9,
+  500: #61699a,
+  700: #303f9f,
+  contrast: (
+    100: rgba(0, 0, 0, 0.87),
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+$mat-accent-scheme: (
+  100: #ff80ab,
+  500: #ff4081,
+  700: #f50057,
+  contrast: (
+    100: rgba(0, 0, 0, 0.87),
+    500: rgba(0, 0, 0, 0.87),
+    700: #ffffff,
+  ),
+);
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+
+.light-mode {
+  @include angular-material-theme($app-light-theme);
+}
+
+$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+
+.dark-mode {
+  @include angular-material-theme($app-dark-theme);
+
+  background-color: #333;
+  color: whitesmoke;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap");
 :root {
   --logoMangaShoten: "Abril Fatface", cursive;
   --font-family: "Roboto", sans-serif;
+  --font: "Merriweather", serif;
   --primary: #6fb290;
   --secondary: #9fccb5;
   --accent: #079eec;
@@ -12,26 +64,196 @@
   --text-regular: #2d3436;
 }
 
-.btn-m {
+// .btn-m {
+//   padding: 5px 20px;
+//   background-color: var(--primary);
+//   border: 0;
+//   border-radius: 5px;
+//   font-weight: 500;
+//   font-family: var(--font-family);
+//   color: white;
+//   &-p {
+//     background-color: var(--primary);
+//     color: white;
+//     cursor: pointer;
+//   }
+//   &:hover {
+//     background-color: var(--secondary);
+//     color: white;
+//   }
+//   transition: background-color 0.4s;
+//   &-s {
+//     background-color: rgb(211, 130, 105);
+//     color: white;
+//   }
+// }
+
+.logo {
+  font-family: var(--logoMangaShoten);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navlik {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  margin-left: 5px;
+  font-size: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+  &:after,
+  &:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff;
+    transition: all 1s;
+  }
+  &:after {
+    top: -1px;
+    left: -1px;
+    // border-top: 5px solid #6fb290;
+    // border-left: 5px solid #6fb290;
+  }
+  &:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 3px solid #6fb290;
+    // border-right: 5px solid #6fb290;
+  }
+  &:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    // background:rgba(0,0,0,.5);
+    // color:white;
+    &:before,
+    &:after {
+      width: 100%;
+      height: 100%;
+      // border-color:white;
+    }
+  }
+}
+
+.btnSignIn {
   padding: 5px 20px;
-  background-color: var(--primary);
-  border: 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  font-family: var(--font);
   border-radius: 5px;
   font-weight: 500;
-  font-family: var(--font-family);
-  color: white;
-  &-p {
-    background-color: var(--primary);
-    color: white;
-    cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
   }
   &:hover {
     background-color: var(--secondary);
-    color: white;
+    color: #fff;
+    border-bottom: 4px solid darken(#9fccb5, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+      transition: all 0.5s ease-in-out;
+    }
   }
-  transition: background-color 0.4s;
-  &-s {
-    background-color: rgb(211, 130, 105);
-    color: white;
+}
+
+.btnSignUp {
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #6fb290;
+  border: 2px solid var(--secondary);
+  font-family: var(--font);
+  border-radius: 5px;
+  font-weight: 500;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
   }
+  &:hover {
+    background-color: #f5f5f5;
+    color: var(--secondary);
+    border-bottom: 4px solid darken(#f4f8f6, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.btn-hover {
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 10px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #2ea4d6,
+    #5589e4,
+    #1abef5,
+    #4382e0
+  );
+}
+
+.btn-hover:hover {
+  color: white;
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.logOut {
+  border-radius: 6px;
+  padding: 5px 20px;
+  background-image: linear-gradient(
+    to right,
+    #f86e75,
+    #eb8989,
+    #d84f6d,
+    #f33434
+  );
 }

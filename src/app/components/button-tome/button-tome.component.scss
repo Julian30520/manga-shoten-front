@@ -1,0 +1,21 @@
+.btnTome {
+  text-align: center;
+  display: block;
+  height: 40px;
+  width: 90px;
+  background-color: #187861;
+  color: #fff;
+  font-size: 0.75em;
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.btnTome:hover {
+  background-color: #77a37a;
+}
+
+.btnTome:focus {
+  outline: 0;
+}

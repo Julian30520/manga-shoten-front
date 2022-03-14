@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,10 +11,17 @@ import { PagesDetailsComponent } from './pages/pages-details/pages-details.compo
 import { PagesBibliComponent } from './pages/pages-bibli/pages-bibli.component';
 import { IconComponent } from './components/icon/icon.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthInterceptor } from './modules/account/services/auth.interceptor';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ButtonTomeComponent } from './components/button-tome/button-tome.component';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +32,7 @@ import { AuthInterceptor } from './modules/account/services/auth.interceptor';
     PagesDetailsComponent,
     PagesBibliComponent,
     IconComponent,
+    ButtonTomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +40,17 @@ import { AuthInterceptor } from './modules/account/services/auth.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

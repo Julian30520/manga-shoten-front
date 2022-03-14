@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
 
@@ -18,6 +19,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PageSignUpComponent implements OnInit {
   public form: FormGroup;
+  loading = false;
 
   constructor(private authService: AuthService, private router: Router) {
     this.form = new FormGroup({});
@@ -25,7 +27,10 @@ export class PageSignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      username: new FormControl(''),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       email: new FormControl('', [
         Validators.email,
         Validators.required,
@@ -39,6 +44,7 @@ export class PageSignUpComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    this.loading = true;
     const UserNameValue = this.form.value['username'];
     const emailValue = this.form.value['email'];
     const passwordValue = this.form.value['password'];
@@ -47,17 +53,20 @@ export class PageSignUpComponent implements OnInit {
       username: UserNameValue,
       mail: emailValue,
       password: passwordValue,
-      firstname: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       // role: ['users'],
       role: {
         roleId: 2,
         codeRole: 'ROLE_USER',
       },
+      avatar: '',
+      dateOfBirth: '',
     };
 
     if (user.mail !== '' && user.password !== '') {
       this.authService.signup(user).subscribe((resp) => {
+        this.alertSignUp();
         this.router.navigate(['account/signin']);
       });
     } else {
@@ -66,5 +75,23 @@ export class PageSignUpComponent implements OnInit {
 
   public redirection() {
     this.router.navigate(['login']);
+  }
+
+  alertSignUp() {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      iconColor: '#6fb290',
+      customClass: {
+        popup: 'colored-toast',
+      },
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+    });
+    Toast.fire({
+      icon: 'success',
+      title: 'Success',
+    });
   }
 }

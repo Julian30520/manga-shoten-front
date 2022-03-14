@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light back">
   <div class="container">
     <button
       class="navbar-toggler collapsed"
@@ -13,34 +13,41 @@
       <span class="toggler-icon middle-bar"></span>
       <span class="toggler-icon bottom-bar"></span>
     </button>
-    <a class="navbar-brand logo p-2" href="#">Manga Shoten</a>
+    <a class="navbar-brand logo" href="#">
+      <div class="d-flex flex-column">
+        <span>Manga</span>
+        <span class="ntm">Shoten</span>
+      </div>
+    </a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item mx5">
           <a
             routerLink="home"
             routerLinkActive="active-custom"
-            class="nav-link"
+            class="nav-link navlik mx5"
             aria-current="page"
             href="#"
             >Home</a
           >
         </li>
         <li class="nav-item">
-          <a routerLink="bibli" class="nav-link" href="#">Bibliotheque</a>
+          <a routerLink="bibli" class="nav-link navlik mx1" href="#"
+            >Bibliotheque</a
+          >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Planning</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">En Vedette</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             *ngIf="this.tokenService.isLoggedIn"
             routerLink="account/user"
             routerLinkActive="active-custom"
-            class="nav-link"
+            class="nav-link navlik"
             >Mon compte</a
           >
         </li>
@@ -49,14 +56,10 @@
         *ngIf="!this.tokenService.isLoggedIn"
         class="d-grid gap-2 d-md-flex justify-content-md-end"
       >
-        <button
-          routerLink="signup"
-          class="btn btn-m btn-pme-md-2"
-          type="button"
-        >
+        <button routerLink="signup" class="btnSignUp" type="button">
           Sign Up
         </button>
-        <button routerLink="login" class="btn btn-m btn-p" type="button">
+        <button routerLink="login" class="btnSignIn" type="button">
           Sign In
         </button>
       </div>
@@ -67,14 +70,14 @@
       >
         <img
           routerLink="account/user"
-          src="https://images.8tracks.com/cover/i/009/099/385/cantdecide-garou-5582.png?rect=0,0,540,540&q=98&fm=jpg&fit=max&w=960&h=960"
+          src="https://signavatar.com/66475_v.gif"
           alt="Avatar"
           class="avatar"
         />
         <button
           (click)="loginOut()"
           routerLink="login"
-          class="btn-s"
+          class="btn-hover logOut"
           type="button"
         >
           Logout

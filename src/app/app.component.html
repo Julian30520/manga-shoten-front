@@ -1,2 +1,22 @@
-<app-nav-bar></app-nav-bar>
+
+  <app-nav-bar></app-nav-bar>
+
 <router-outlet></router-outlet>
+
+<mat-toolbar-row class="back">
+  <!-- <span style="flex: 1 1 auto"></span> -->
+  <mat-slide-toggle
+    style="
+      position: fixed;
+      bottom: 0.5rem;
+      left: 0.5rem;
+      font-size: 15px;
+      font-weight: bold;
+      font-style: italic;
+      padding: 0;
+    "
+    (click)="toggleDarkMode()"
+    [(ngModel)]="isDarkMode"
+    >Dark mode
+  </mat-slide-toggle>
+</mat-toolbar-row>

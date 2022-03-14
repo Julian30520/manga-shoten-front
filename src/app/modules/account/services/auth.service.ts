@@ -33,11 +33,8 @@ export class AuthService {
       password: password,
     };
 
-    console.log('Mon body : ', body);
-
     return this.http.post(`${this.apiUrl}users/sign-in`, body).pipe(
       map((x: any) => {
-        console.log('Service : ', x.token);
         localStorage.setItem(this.tokenKey, x.token);
         return x;
       })
@@ -45,18 +42,16 @@ export class AuthService {
   }
 
   getConnectedUserInfo(): Observable<User> | void {
-    console.log('getConnected')
     const token = localStorage.getItem(this.tokenKey);
-    
+
     if (token) {
-      
       const decodedToken = jwt_decode<any>(token);
       const userId = decodedToken.sub;
       // console.log('isToken', this.http.get<User>(`${this.apiUrl}users/username/${userId}`,{headers}).subscribe((user:any) => {
       //   user
       // }))
 
-      return userId
+      return userId;
     } else {
       this.router.navigate(['account/signin']);
     }

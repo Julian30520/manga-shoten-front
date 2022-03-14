@@ -48,13 +48,13 @@ export class PagesAccueilComponent implements OnInit {
   
   retrieveMangas(): void {
     const params = this.getParams(this.limit, this.offset)
-    console.log(params)
+    //console.log(params)
     this.mangaService.getAllManga(params).subscribe((data: any[]) => {
       ///console.log(data)
       this.dataManga = data;
       this.mangaSearch = [...data]
       this.loading = false
-     // console.log(this.dataManga);
+      console.log(this.dataManga);
     });
   }
 
@@ -78,7 +78,7 @@ export class PagesAccueilComponent implements OnInit {
     // this.searchManga = search;
     if(search) {
       this.mangaService.getMangaBySearch(search).subscribe((el: any) => {
-        console.log(el);
+       // console.log(el);
         this.dataManga = el
       })
     } else {

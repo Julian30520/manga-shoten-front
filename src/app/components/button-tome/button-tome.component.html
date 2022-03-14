@@ -1,0 +1,20 @@
+<div style="text-align: center">
+  <button
+    class="btnTome"
+    mat-flat-button
+    (click)="addToCart(item.Id)"
+    *ngFor="let item of itemStates"
+  >
+    <mat-icon
+      [@animateCheck]="getItemState(item.Id) + '_check'"
+      [@hideCheck]="getItemState(item.Id) + '_check'"
+    >check</mat-icon>
+
+    <span
+      [@animateText]="getItemState(item.Id) + '_text'"
+      [@hideText]="getItemState(item.Id) + '_text'"
+    >
+      Add Tome
+    </span>
+  </button>
+</div>

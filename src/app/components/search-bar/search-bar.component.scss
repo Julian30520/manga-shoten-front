@@ -1,8 +1,20 @@
 .searchSection {
-    min-height: 350px;
-    background: no-repeat center / cover url('https://cdn.dribbble.com/users/73153/screenshots/4489877/media/d0618082e2c799d62077d379072f64cc.png?compress=1&resize=800x600&vertical=top');
-    // ('https://cdn.dribbble.com/users/3558835/screenshots/9197759/media/335937b8347f24d2e860dfb52312f1a2.jpg?compress=1&resize=1200x900&vertical=top');
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  // width: 450px;
+  // height: 100px;
+  background-size: contain;
+  min-height: 350px;
+  background: no-repeat center url("../../asset/goku\ petit2.jpg");
+  // ('https://cdn.dribbble.com/users/3558835/screenshots/9197759/media/335937b8347f24d2e860dfb52312f1a2.jpg?compress=1&resize=1200x900&vertical=top');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
+}
+
+h3 {
+  font-family: var(--font);
+}
+
+.bordure {
+  border-radius: 10px;
 }
